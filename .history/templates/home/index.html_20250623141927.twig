@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block body %}
+    <h1>Bienvenue sur le site de gestion des utilisateurs</h1>
+    <p>Utilisez le menu pour naviguer entre les différentes fonctionnalités.</p>
+    <p>Vous pouvez créer, modifier et supprimer des utilisateurs.</p>
+    <p>Pour commencer, cliquez sur "Utilisateurs" dans le menu.</p>
+{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/home.js') }}"></script>
+{% endblock %}
