@@ -1,0 +1,170 @@
+{
+    "sourceFile": "templates/pages/ingredient/edit.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 38,
+            "patches": [
+                {
+                    "date": 1750755985341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750755992089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-{}\n\\ No newline at end of file\n+{% ex}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750755999209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,15 @@\n-{% ex}\n\\ No newline at end of file\n+{% extends 'base.html.twig' %}\r\n+\r\n+{% block title %}Edit Ingredient{% endblock %}\r\n+\r\n+{% block content %}\r\n+    <h1>Edit Ingredient</h1>\r\n+\r\n+    {{ form_start(form) }}\r\n+        {{ form_row(form.name) }}\r\n+        {{ form_row(form.description) }}\r\n+        {{ form_row(form.save) }}\r\n+    {{ form_end(form) }}\r\n+\r\n+    <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n+{% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750756009723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {% extends 'base.html.twig' %}\r\n \r\n-{% block title %}Edit Ingredient{% endblock %}\r\n+{% block title %}Modification de  Ingredient{% endblock %}\r\n \r\n {% block content %}\r\n     <h1>Edit Ingredient</h1>\r\n \r\n"
+                },
+                {
+                    "date": 1750756027082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {% extends 'base.html.twig' %}\r\n \r\n-{% block title %}Modification de  Ingredient{% endblock %}\r\n+{% block title %}{% endblock %}\r\n \r\n {% block content %}\r\n     <h1>Edit Ingredient</h1>\r\n \r\n"
+                },
+                {
+                    "date": 1750756035410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n {% extends 'base.html.twig' %}\r\n \r\n-{% block title %}{% endblock %}\r\n \r\n {% block content %}\r\n-    <h1>Edit Ingredient</h1>\r\n+    <h1>Modification de  l'Ingredient</h1>\r\n \r\n     {{ form_start(form) }}\r\n         {{ form_row(form.name) }}\r\n         {{ form_row(form.description) }}\r\n"
+                },
+                {
+                    "date": 1750756040537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends 'base.html.twig' %}\r\n \r\n \r\n {% block content %}\r\n-    <h1>Modification de  l'Ingredient</h1>\r\n+    <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n \r\n     {{ form_start(form) }}\r\n         {{ form_row(form.name) }}\r\n         {{ form_row(form.description) }}\r\n"
+                },
+                {
+                    "date": 1750756049382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n \r\n     {{ form_start(form) }}\r\n+    <div class\r\n         {{ form_row(form.name) }}\r\n         {{ form_row(form.description) }}\r\n         {{ form_row(form.save) }}\r\n     {{ form_end(form) }}\r\n"
+                },
+                {
+                    "date": 1750756070628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,14 @@\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n \r\n     {{ form_start(form) }}\r\n-    <div class\r\n+    <div class=\"form-group\">\r\n+        {{ form_label(form.name) }}\r\n+        {{ form_widget(form.name) }}\r\n+        <div>\r\n+        \r\n+        </div>\r\n         {{ form_row(form.name) }}\r\n         {{ form_row(form.description) }}\r\n         {{ form_row(form.save) }}\r\n     {{ form_end(form) }}\r\n"
+                },
+                {
+                    "date": 1750756076638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n     {{ form_start(form) }}\r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n-        <div>\r\n+        <div\r\n         \r\n-        </div>\r\n+    \r\n         {{ form_row(form.name) }}\r\n         {{ form_row(form.description) }}\r\n         {{ form_row(form.save) }}\r\n     {{ form_end(form) }}\r\n"
+                },
+                {
+                    "date": 1750756082630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,19 @@\n     {{ form_start(form) }}\r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n-        <div\r\n-        \r\n-    \r\n-        {{ form_row(form.name) }}\r\n-        {{ form_row(form.description) }}\r\n+        <div class=\"form-error\">\r\n+            {{ form_errors(form.name) }}\r\n+        </div>\r\n+    </div>\r\n+    <div class=\"form-group\">\r\n+        {{ form_label(form.description) }}\r\n+        {{ form_widget(form.description) }}\r\n+        <div class=\"form-error\">\r\n+            {{ form_errors(form.description) }}\r\n+        </div>\r\n+    </div>\r\n         {{ form_row(form.save) }}\r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n"
+                },
+                {
+                    "date": 1750756095745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,17 +9,12 @@\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n-        </div>\r\n-    </div>\r\n-    <div class=\"form-group\">\r\n-        {{ form_label(form.description) }}\r\n-        {{ form_widget(form.description) }}\r\n-        <div class=\"form-error\">\r\n-            {{ form_errors(form.description) }}\r\n-        </div>\r\n-    </div>\r\n+        \r\n+    \r\n+        {{ form_row(form.name) }}\r\n+   \r\n         {{ form_row(form.save) }}\r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n"
+                },
+                {
+                    "date": 1750756105749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,10 @@\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n         \r\n-    \r\n-        {{ form_row(form.name) }}\r\n-   \r\n-        {{ form_row(form.save) }}\r\n+    {{ form_e(form.name) }}\r\n+\r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750756127310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,14 @@\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n         \r\n-    {{ form_e(form.name) }}\r\n+    {{ form_errors(form.name) }}\r\n \r\n+      <div class=\"form-group\">\r\n+        {{ form_label(form.name) }}\r\n+        {{ form_widget(form.name) }}\r\n+\r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750756134489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,10 @@\n         \r\n     {{ form_errors(form.name) }}\r\n \r\n       <div class=\"form-group\">\r\n-        {{ form_label(form.name) }}\r\n-        {{ form_widget(form.name) }}\r\n+        {{ form_label(form.price) }}\r\n+        {{ form_widget(form.price) }}\r\n \r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n"
+                },
+                {
+                    "date": 1750756142831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,12 @@\n \r\n       <div class=\"form-group\">\r\n         {{ form_label(form.price) }}\r\n         {{ form_widget(form.price) }}\r\n+        <div class=\"form-error\">\r\n+            {{ form_errors(form.price) }}\r\n+        </div>\r\n+    </div>\r\n \r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n"
+                },
+                {
+                    "date": 1750756150221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,10 @@\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n-        \r\n+            </div>\r\n+    </div>\r\n     {{ form_errors(form.name) }}\r\n \r\n       <div class=\"form-group\">\r\n         {{ form_label(form.price) }}\r\n"
+                },
+                {
+                    "date": 1750756155552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,9 @@\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n-            </div>\r\n-    </div>\r\n-    {{ form_errors(form.name) }}\r\n+        \r\n \r\n       <div class=\"form-group\">\r\n         {{ form_label(form.price) }}\r\n         {{ form_widget(form.price) }}\r\n"
+                },
+                {
+                    "date": 1750756161571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,17 +9,19 @@\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n-        \r\n+            </div>\r\n+    </div>\r\n \r\n       <div class=\"form-group\">\r\n         {{ form_label(form.price) }}\r\n         {{ form_widget(form.price) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.price) }}\r\n         </div>\r\n     </div>\r\n+    \r\n \r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n"
+                },
+                {
+                    "date": 1750756167679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,11 @@\n         <div class=\"form-error\">\r\n             {{ form_errors(form.price) }}\r\n         </div>\r\n     </div>\r\n-    \r\n+    <div class=\"form-group\">\r\n+        {{ form_row(form.submit) }}\r\n+    </div>\r\n \r\n     {{ form_end(form) }}\r\n \r\n     <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n"
+                },
+                {
+                    "date": 1750756207035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n     </div>\r\n \r\n     {{ form_end(form) }}\r\n \r\n-    <a href=\"{{ path('ingredient_list') }}\">Back to list</a>\r\n+    <a href=\"{{ path('ingredient_list') }}\">modifier</a>\r\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750756786116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n \r\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n+    <a href=\"{{ path('ingredient_list') }}\">modifier</a>\r\n \r\n     {{ form_start(form) }}\r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n"
+                },
+                {
+                    "date": 1750756793192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <a href=\"{{ path('ingredient_list') }}\">modifier</a>\r\n+    <h4><a href=\"{{ path('ingredient_list') }}\">modifier</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n@@ -26,6 +26,5 @@\n     </div>\r\n \r\n     {{ form_end(form) }}\r\n \r\n-    <a href=\"{{ path('ingredient_list') }}\">modifier</a>\r\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750757866754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n \r\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n+    \r\n     <h4><a href=\"{{ path('ingredient_list') }}\">modifier</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750757889935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,9 @@\n \r\n \r\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    \r\n-    <h4><a href=\"{{ path('ingredient_list') }}\">modifier</a></h4>\r\n+    <h4><a href=\"{{ path('ingredient_list') }}\">Retour à la liste</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n"
+                },
+                {
+                    "date": 1750757920315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n     <h4><a href=\"{{ path('ingredient_list') }}\">Retour à la liste</a></h4>\r\n \r\n+\r\n     {{ form_start(form) }}\r\n+\r\n+    \r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n"
+                },
+                {
+                    "date": 1750757929194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,18 +4,16 @@\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n     <h4><a href=\"{{ path('ingredient_list') }}\">Retour à la liste</a></h4>\r\n \r\n-\r\n     {{ form_start(form) }}\r\n \r\n-    \r\n     <div class=\"form-group\">\r\n         {{ form_label(form.name) }}\r\n         {{ form_widget(form.name) }}\r\n         <div class=\"form-error\">\r\n             {{ form_errors(form.name) }}\r\n-            </div>\r\n+        </div>\r\n     </div>\r\n \r\n       <div class=\"form-group\">\r\n         {{ form_label(form.price) }}\r\n"
+                },
+                {
+                    "date": 1750758004041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,6 +26,6 @@\n         {{ form_row(form.submit) }}\r\n     </div>\r\n \r\n     {{ form_end(form) }}\r\n-\r\n+ </div>\r\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750758043012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('ingredient_list') }}\">Retour à la liste</a></h4>\r\n+    <h4><a href=\"{{ path('ingredient_list') }}\">Modifi</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750758049629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block content %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('ingredient_list') }}\">Modifi</a></h4>\r\n+    <h4><a href=\"{{ path('ingredient_edit') }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763259442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {% extends 'base.html.twig' %}\r\n \r\n \r\n-{% block content %}\r\n+{% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n     <h4><a href=\"{{ path('ingredient_edit') }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n"
+                },
+                {
+                    "date": 1750763289302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('ingredient_edit') }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('ingredient_ediappt') }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763295163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('ingredient_ediappt') }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('appingredient_edit') }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763315623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('appingredient_edit') }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('app_ingredient_edit') }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763321867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('app_ingredient_edit') }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763363072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient }) }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763370054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient }) }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) }}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763478847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) }}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) class}}\">Modification</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                },
+                {
+                    "date": 1750763486945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n {% block body %}\r\n     <h1 class=\"mt-4\">Modification de l'Ingredient</h1>\r\n-    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) class}}\">Modification</a></h4>\r\n+    <h4><a href=\"{{ path('app_ingredient_edit', { id: ingredient.id }) }}\" class=\"btn btn-info\">Modifi</a></h4>\r\n \r\n     {{ form_start(form) }}\r\n \r\n     <div class=\"form-group\">\r\n"
+                }
+            ],
+            "date": 1750755985341,
+            "name": "Commit-0",
+            "content": "{}"
+        }
+    ]
+}

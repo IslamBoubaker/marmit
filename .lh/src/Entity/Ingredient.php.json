@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/Entity/Ingredient.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1750755161697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750755234018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,12 @@\n namespace App\\Entity;\n \n use App\\Repository\\IngredientRepository;\n use Doctrine\\ORM\\Mapping as ORM;\n+use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n \n #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n- \n- #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n  #[UniqueEntity('name')]\n \n class Ingredient\n {\n"
+                }
+            ],
+            "date": 1750755161697,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\IngredientRepository;\nuse Doctrine\\ORM\\Mapping as ORM;\nuse Symfony\\Component\\Validator\\Constraints as Assert;\n\n#[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n \n #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n #[UniqueEntity('name')]\n\nclass Ingredient\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 50)]\n    #[Assert\\Length(\n        min :2,\n        max :50,\n        minMessage : 'The name must be at least {{ limit }} characters long',\n        maxMessage : 'The name cannot be longer than {{ limit }} characters')]\n        #[Assert\\NotBlank()]\n    private ?string $name = null;\n\n    #[ORM\\Column]\n    #[Assert\\Positive()]\n    #[Assert\\LessThan(200)]\n    #[Assert\\NotNull()]\n\n    private ?float $price = null;\n\n    #[ORM\\Column]\n    #[Assert\\NotNull()]\n    private ?\\DateTimeImmutable $createdAt = null;\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getName(): ?string\n    {\n        return $this->name;\n    }\n\n    public function setName(string $name): static\n    {\n        $this->name = $name;\n\n        return $this;\n    }\n\n    public function getPrice(): ?float\n    {\n        return $this->price;\n    }\n\n    public function setPrice(float $price): static\n    {\n        $this->price = $price;\n\n        return $this;\n    }\n\n    public function getCreatedAt(): ?\\DateTimeImmutable\n    {\n        return $this->createdAt;\n    }\n\n    public function setCreatedAt(\\DateTimeImmutable $createdAt): static\n    {\n        $this->createdAt = $createdAt;\n\n        return $this;\n    }\n    \n    /**\n     * Constructs\n     */\n    public function __construct()\n    {\n        $this->createdAt = new \\DateTimeImmutable();    \n    }\n    \n}\n"
+        }
+    ]
+}

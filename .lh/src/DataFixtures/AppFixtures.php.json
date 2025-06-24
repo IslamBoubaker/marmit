@@ -1,0 +1,98 @@
+{
+    "sourceFile": "src/DataFixtures/AppFixtures.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1750768382059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750768452150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,11 @@\n                     ->setDifficulty(mt_rand(0,1) == 1? mt_rand(1,5):null)\n                     ->setDescription($this->faker->text(300))\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n+\n+\n+                    \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n"
+                },
+                {
+                    "date": 1750768462770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,10 +38,10 @@\n                     ->setDescription($this->faker->text(300))\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n+for $\n \n-                    \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n"
+                },
+                {
+                    "date": 1750768469479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n                     ->setDescription($this->faker->text(300))\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n-for $\n+for $k=0; $k < mt_rand(1,5); $k++) {\n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768476994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n                     ->setDescription($this->faker->text(300))\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n-for $k=0; $k < mt_rand(1,5); $k++) {\n+for $k=0; $k < mt_rand(,15); $k++) {\n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768483252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,10 @@\n                     ->setDescription($this->faker->text(300))\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n-for $k=0; $k < mt_rand(,15); $k++) {\n+for $k=0; $k < mt_rand(5,15); $k++) {\n+    \n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768492567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n for $k=0; $k < mt_rand(5,15); $k++) {\n-    \n+    $\n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768501087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n for $k=0; $k < mt_rand(5,15); $k++) {\n-    $\n+    $recipe->addIngredient($ingredient);\n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768506887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n for $k=0; $k < mt_rand(5,15); $k++) {\n-    $recipe->addIngredient($ingredient);\n+    $recipe->addIngredient($ingredient[mt_rand(0,49)]);\n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768512029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n for $k=0; $k < mt_rand(5,15); $k++) {\n-    $recipe->addIngredient($ingredient[mt_rand(0,49)]);\n+    $recipe->addIngredient($ingredient[mt_rand(0,count)]);\n \n             $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750768520789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,11 +39,10 @@\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n for $k=0; $k < mt_rand(5,15); $k++) {\n-    $recipe->addIngredient($ingredient[mt_rand(0,count)]);\n+    $recipe->addIngredient($ingredient[mt_rand(0,count($ingredient)-1)]);\n \n-            $recipe->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n         $manager->flush();\n"
+                },
+                {
+                    "date": 1750768528423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,11 +41,12 @@\n \n for $k=0; $k < mt_rand(5,15); $k++) {\n     $recipe->addIngredient($ingredient[mt_rand(0,count($ingredient)-1)]);\n \n-            $manager->persist($ingredient);\n+            $manager->persist($recipe);\n         }\n \n         $manager->flush();\n     }\n \n+}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750768534218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,7 +46,5 @@\n         }\n \n         $manager->flush();\n     }\n-\n-}\n-}\n\\ No newline at end of file\n+    }}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750768539987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n                     ->setDescription($this->faker->text(300))\n                     ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                     ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n \n-for $k=0; $k < mt_rand(5,15); $k++) {\n+for ($k=0; $k < mt_rand(5,15); $k++) {\n     $recipe->addIngredient($ingredient[mt_rand(0,count($ingredient)-1)]);\n \n             $manager->persist($recipe);\n         }\n"
+                },
+                {
+                    "date": 1750768582332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n             $ingredient->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n-        for ($i=1; $i < 50 ; $i++) { \n+        for ($i=1; $i < 50 ; $++) { \n             $recipe = new Recipe();\n             $recipe->setName($this->faker->word())\n                     ->setTime(mt_rand(1,1440))\n                     ->setNbPeople(mt_rand(0,1) == 1? mt_rand(1,50):null)\n@@ -46,5 +46,7 @@\n         }\n \n         $manager->flush();\n     }\n-    }}\n\\ No newline at end of file\n+    }\n+\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750768587996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n             $ingredient->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n-        for ($i=1; $i < 50 ; $++) { \n+        for ($j=1; $j < 50 ; $j++) { \n             $recipe = new Recipe();\n             $recipe->setName($this->faker->word())\n                     ->setTime(mt_rand(1,1440))\n                     ->setNbPeople(mt_rand(0,1) == 1? mt_rand(1,50):null)\n"
+                },
+                {
+                    "date": 1750768597809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n             $ingredient->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n-        for ($j=1; $j < 50 ; $j++) { \n+        for ($j=1; $j < 25; $j++) { \n             $recipe = new Recipe();\n             $recipe->setName($this->faker->word())\n                     ->setTime(mt_rand(1,1440))\n                     ->setNbPeople(mt_rand(0,1) == 1? mt_rand(1,50):null)\n"
+                },
+                {
+                    "date": 1750768604433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n             $ingredient->setPrice(mt_rand(0,200));\n             $manager->persist($ingredient);\n         }\n \n-        for ($j=1; $j < 25; $j++) { \n+        for ($j=1; $j < 25 ; $j++) { \n             $recipe = new Recipe();\n             $recipe->setName($this->faker->word())\n                     ->setTime(mt_rand(1,1440))\n                     ->setNbPeople(mt_rand(0,1) == 1? mt_rand(1,50):null)\n"
+                },
+                {
+                    "date": 1750768621100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n     {\n         for ($i=1; $i < 50 ; $i++) { \n             $ingredient = new Ingredient();\n             $ingredient->setName($this->faker->word());\n-            $ingredient->setPrice(mt_rand(0,200));\n+            $ingredient->setPrice(mt_rand(0,100));\n             $manager->persist($ingredient);\n         }\n \n         for ($j=1; $j < 25 ; $j++) { \n"
+                },
+                {
+                    "date": 1750768628735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n         for ($i=1; $i < 50 ; $i++) { \n             $ingredient = new Ingredient();\n             $ingredient->setName($this->faker->word());\n             $ingredient->setPrice(mt_rand(0,100));\n+            \n             $manager->persist($ingredient);\n         }\n \n         for ($j=1; $j < 25 ; $j++) { \n"
+                },
+                {
+                    "date": 1750768633993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         for ($i=1; $i < 50 ; $i++) { \n             $ingredient = new Ingredient();\n             $ingredient->setName($this->faker->word());\n             $ingredient->setPrice(mt_rand(0,100));\n-            $ingredients\n+            $ingredients[] = $ingredient;\n             $manager->persist($ingredient);\n         }\n \n         for ($j=1; $j < 25 ; $j++) { \n"
+                }
+            ],
+            "date": 1750768382059,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\DataFixtures;\n\nuse Doctrine\\Bundle\\FixturesBundle\\Fixture;\nuse App\\Entity\\Ingredient;\nuse App\\Entity\\Recipe;\nuse Doctrine\\Persistence\\ObjectManager;\nuse Faker\\Factory;\nuse Faker\\Generator;\nuse phpDocumentor\\Reflection\\DocBlock\\Tags\\Generic;\n\nclass AppFixtures extends Fixture\n{\n\n\n    private Generator $faker;\n    public function __construct() \n    {\n        $this->faker = Factory::create(\"fr_FR\");\n    }\n\n    public function load(ObjectManager $manager): void\n    {\n        for ($i=1; $i < 50 ; $i++) { \n            $ingredient = new Ingredient();\n            $ingredient->setName($this->faker->word());\n            $ingredient->setPrice(mt_rand(0,200));\n            $manager->persist($ingredient);\n        }\n\n        for ($i=1; $i < 50 ; $i++) { \n            $recipe = new Recipe();\n            $recipe->setName($this->faker->word())\n                    ->setTime(mt_rand(1,1440))\n                    ->setNbPeople(mt_rand(0,1) == 1? mt_rand(1,50):null)\n                    ->setDifficulty(mt_rand(0,1) == 1? mt_rand(1,5):null)\n                    ->setDescription($this->faker->text(300))\n                    ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n                    ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n            $recipe->setPrice(mt_rand(0,200));\n            $manager->persist($ingredient);\n        }\n\n        $manager->flush();\n    }\n\n}"
+        }
+    ]
+}

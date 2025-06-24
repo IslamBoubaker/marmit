@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1 classs>Modification de  l'Ingredient</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.save) }}
+    {{ form_end(form) }}
+
+    <a href="{{ path('ingredient_list') }}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,382 @@
+{
+    "sourceFile": "src/Entity/Recipe.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 91,
+            "patches": [
+                {
+                    "date": 1750766319720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750766326153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n \n     #[ORM\\Column(type: Types::TIME_MUTABLE)]\n     private ?\\DateTimeInterface $time = null;\n \n-    #[ORM\\Column(length: true)]\n+    #[ORM\\Column(nullable:: true)]\n     private ?string $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n"
+                },
+                {
+                    "date": 1750766334964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,11 +33,11 @@\n \n     #[ORM\\Column(type: Types::TIME_MUTABLE)]\n     private ?\\DateTimeInterface $time = null;\n \n-    #[ORM\\Column(nullable:: true)]\n-    private ?string $nbPeople = null;\n \n+    #[ORM\\Column(nullable: true)]    private ?string $nbPeople = null;\n+\n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n"
+                },
+                {
+                    "date": 1750766340381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,10 @@\n     #[ORM\\Column(type: Types::TIME_MUTABLE)]\n     private ?\\DateTimeInterface $time = null;\n \n \n-    #[ORM\\Column(nullable: true)]    private ?string $nbPeople = null;\n+    #[ORM\\Column(nullable: true)]   \n+     private ?string $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n \n"
+                },
+                {
+                    "date": 1750766372100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,13 +31,13 @@\n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n     #[ORM\\Column(type: Types::TIME_MUTABLE)]\n-    private ?\\DateTimeInterface $time = null;\n+    private ?\\int $time = null;\n \n \n     #[ORM\\Column(nullable: true)]   \n-     private ?string $nbPeople = null;\n+    private ?string $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n \n"
+                },
+                {
+                    "date": 1750766384274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    #[ORM\\Column(type: Types::TIME_MUTABLE)]\n+    #[ORM\\Column(nullable: true)]   \n     private ?\\int $time = null;\n \n \n     #[ORM\\Column(nullable: true)]   \n"
+                },
+                {
+                    "date": 1750766389756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n     #[ORM\\Column(nullable: true)]   \n-    private ?\\int $time = null;\n+    private ?int $time = null;\n \n \n     #[ORM\\Column(nullable: true)]   \n     private ?string $nbPeople = null;\n"
+                },
+                {
+                    "date": 1750766409050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,9 @@\n \n     #[ORM\\Column(nullable: true)]   \n     private ?int $time = null;\n \n-\n-    #[ORM\\Column(nullable: true)]   \n+    #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n"
+                },
+                {
+                    "date": 1750766429669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,9 +79,9 @@\n \n         return $this;\n     }\n \n-    public function getCreatedAt(): ?\\DateTimeInterface\n+    public function getCreatedAt(): ?\\DateTimeImmutable\n     {\n         return $this->createdAt;\n     }\n \n"
+                },
+                {
+                    "date": 1750766475152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,9 @@\n     {\n         return $this->createdAt;\n     }\n \n-    public function setCreatedAt(\\DateTimeInterface $createdAt): static\n+    public function setCreatedAt(\\DateTimeImmutable $createdAt): static\n     {\n         $this->createdAt = $createdAt;\n \n         return $this;\n@@ -132,9 +132,9 @@\n     {\n         return $this->time;\n     }\n \n-    public function setTime(\\DateTimeInterface $time): static\n+    public function setTime(\\ $time): static\n     {\n         $this->time = $time;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766480648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -127,14 +127,14 @@\n \n         return $this;\n     }\n \n-    public function getTime(): ?\\DateTimeInterface\n+    public function getTime(): ?\\int\n     {\n         return $this->time;\n     }\n \n-    public function setTime(\\ $time): static\n+    public function setTime(?int $time): static\n     {\n         $this->time = $time;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766528871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -163,9 +163,9 @@\n \n         return $this;\n     }\n \n-    public function isPrice(): ?bool\n+    public function getPrice(): ?bool\n     {\n         return $this->price;\n     }\n \n"
+                },
+                {
+                    "date": 1750766534113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -127,9 +127,9 @@\n \n         return $this;\n     }\n \n-    public function getTime(): ?\\int\n+    public function getTime(): ?int\n     {\n         return $this->time;\n     }\n \n@@ -163,9 +163,9 @@\n \n         return $this;\n     }\n \n-    public function getPrice(): ?bool\n+    public function getPrice(): ?float\n     {\n         return $this->price;\n     }\n \n"
+                },
+                {
+                    "date": 1750766541829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -168,9 +168,9 @@\n     {\n         return $this->price;\n     }\n \n-    public function setPrice(?bool $price): static\n+    public function setPrice(?float $price): slef\n     {\n         $this->price = $price;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766562794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -168,9 +168,9 @@\n     {\n         return $this->price;\n     }\n \n-    public function setPrice(?float $price): slef\n+    public function setPrice(?float $price): static\n     {\n         $this->price = $price;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766592780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -168,9 +168,9 @@\n     {\n         return $this->price;\n     }\n \n-    public function setPrice(?float $price): static\n+    public function setPrice(?float $price): slef\n     {\n         $this->price = $price;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766622138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     {\n         return $this->name;\n     }\n \n-    public function setName(string $name): static\n+    public function setName(string $name): null\n     {\n         $this->name = $name;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766630248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     {\n         return $this->name;\n     }\n \n-    public function setName(string $name): null\n+    public function setName(string $name): static\n     {\n         $this->name = $name;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766695682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(nullable: true)]\n+    #[ORM\\Column(t: true)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750766702041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(t: true)]\n+    #[ORM\\Column(Text: true)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750766711227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(Text: true)]\n+    #[ORM\\Column(Types: )]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750766716449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(Types: )]\n+    #[ORM\\Column(Types: Types)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750766721712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(Types: Types)]\n+    #[ORM\\Column(Types: Types::)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750766733177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(Types: Types::)]\n+    #[ORM\\Column(Text: true)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750766771486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n \n-    #[ORM\\Column(Text: true)]\n+    #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n@@ -60,9 +60,9 @@\n     {\n         return $this->name;\n     }\n \n-    public function setName(string $name): static\n+    public function setName(string $name): self\n     {\n         $this->name = $name;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766786680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n     public function setName(string $name): self\n     {\n         $this->name = $name;\n \n-        return $this;\n+        return $this->;\n     }\n \n     public function getDescription(): ?string\n     {\n"
+                },
+                {
+                    "date": 1750766792920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,11 +62,10 @@\n     }\n \n     public function setName(string $name): self\n     {\n-        $this->name = $name;\n \n-        return $this->;\n+        return $this->name;\n     }\n \n     public function getDescription(): ?string\n     {\n"
+                },
+                {
+                    "date": 1750766817511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,18 +62,19 @@\n     }\n \n     public function setName(string $name): self\n     {\n+        $this->name = $name;\n \n-        return $this->name;\n+        return $this;\n     }\n \n     public function getDescription(): ?string\n     {\n         return $this->description;\n     }\n \n-    public function setDescription(string $description): static\n+    public function setDescription(string $description): self\n     {\n         $this->description = $description;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766846877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,9 @@\n     {\n         return $this->createdAt;\n     }\n \n-    public function setCreatedAt(\\DateTimeImmutable $createdAt): static\n+    public function setCreatedAt(\\DateTimeImmutable $createdAt): self\n     {\n         $this->createdAt = $createdAt;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766873576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -96,9 +96,9 @@\n     {\n         return $this->isFavorite;\n     }\n \n-    public function setIsFavorite(bool $isFavorite): static\n+    public function setIsFavorite(bool $isFavorite): self\n     {\n         $this->isFavorite = $isFavorite;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766895101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n     {\n         return $this->ingredients;\n     }\n \n-    public function addIngredient(Ingredient $ingredient): static\n+    public function addIngredient(Ingredient $ingredient): self\n     {\n         if (!$this->ingredients->contains($ingredient)) {\n             $this->ingredients->add($ingredient);\n         }\n"
+                },
+                {
+                    "date": 1750766910658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n \n         return $this;\n     }\n \n-    public function removeIngredient(Ingredient $ingredient): static\n+    public function removeIngredient(Ingredient $ingredient): self\n     {\n         $this->ingredients->removeElement($ingredient);\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766927920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -132,9 +132,9 @@\n     {\n         return $this->time;\n     }\n \n-    public function setTime(?int $time): static\n+    public function setTime(?int $time): self\n     {\n         $this->time = $time;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766933271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -139,9 +139,9 @@\n \n         return $this;\n     }\n \n-    public function getNbPeople(): ?string\n+    public function getNbPeople(): ?self\n     {\n         return $this->nbPeople;\n     }\n \n"
+                },
+                {
+                    "date": 1750766940262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -139,9 +139,9 @@\n \n         return $this;\n     }\n \n-    public function getNbPeople(): ?self\n+    public function getNbPeople(): ?int\n     {\n         return $this->nbPeople;\n     }\n \n"
+                },
+                {
+                    "date": 1750766954457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n     {\n         return $this->nbPeople;\n     }\n \n-    public function setNbPeople(string $nbPeople): static\n+    public function setNbPeople(string $nbPeople): self\n     {\n         $this->nbPeople = $nbPeople;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766967308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n     {\n         return $this->nbPeople;\n     }\n \n-    public function setNbPeople(string $nbPeople): self\n+    public function setNbPeople(int $nbPeople): self\n     {\n         $this->nbPeople = $nbPeople;\n \n         return $this;\n@@ -156,9 +156,9 @@\n     {\n         return $this->difficulty;\n     }\n \n-    public function setDifficulty(?int $difficulty): static\n+    public function setDifficulty(?int $difficulty): self\n     {\n         $this->difficulty = $difficulty;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750766972559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -168,9 +168,9 @@\n     {\n         return $this->price;\n     }\n \n-    public function setPrice(?float $price): slef\n+    public function setPrice(?float $price): self\n     {\n         $this->price = $price;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750767013659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -180,9 +180,9 @@\n     {\n         return $this->updated_at;\n     }\n \n-    public function setUpdatedAt(\\DateTimeImmutable $updated_at): static\n+    public function setUpdatedAt(\\DateTimeImmutable $updated_at): self\n     {\n         $this->updated_at = $updated_at;\n \n         return $this;\n"
+                },
+                {
+                    "date": 1750767129205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n use Doctrine\\Common\\Collections\\Collection;\n use Doctrine\\DBAL\\Types\\Types;\n use Doctrine\\ORM\\Mapping as ORM;\n \n+\n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n class Recipe\n {\n     #[ORM\\Id]\n"
+                },
+                {
+                    "date": 1750767136621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n use Doctrine\\Common\\Collections\\ArrayCollection;\n use Doctrine\\Common\\Collections\\Collection;\n use Doctrine\\DBAL\\Types\\Types;\n use Doctrine\\ORM\\Mapping as ORM;\n+use Sy\n \n-\n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n class Recipe\n {\n     #[ORM\\Id]\n"
+                },
+                {
+                    "date": 1750767141781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n use Doctrine\\Common\\Collections\\ArrayCollection;\n use Doctrine\\Common\\Collections\\Collection;\n use Doctrine\\DBAL\\Types\\Types;\n use Doctrine\\ORM\\Mapping as ORM;\n-use Sy\n+use Symfony\n \n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n class Recipe\n {\n"
+                },
+                {
+                    "date": 1750767147100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n use Doctrine\\Common\\Collections\\ArrayCollection;\n use Doctrine\\Common\\Collections\\Collection;\n use Doctrine\\DBAL\\Types\\Types;\n use Doctrine\\ORM\\Mapping as ORM;\n-use Symfony\n+use Symfony\\Component\n \n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n class Recipe\n {\n"
+                },
+                {
+                    "date": 1750767154249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,12 @@\n use Doctrine\\Common\\Collections\\ArrayCollection;\n use Doctrine\\Common\\Collections\\Collection;\n use Doctrine\\DBAL\\Types\\Types;\n use Doctrine\\ORM\\Mapping as ORM;\n-use Symfony\\Component\n+use Symfony\\Component\\Validator\\Constraints as Assert;\n+use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n+\n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n class Recipe\n {\n     #[ORM\\Id]\n"
+                },
+                {
+                    "date": 1750767161632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n+#[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n \n-#[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n class Recipe\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n"
+                },
+                {
+                    "date": 1750767176959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,18 @@\n use Symfony\\Component\\Validator\\Constraints as Assert;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n-\n+#[UniqueEntity('name')]\n class Recipe\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n     #[ORM\\Column]\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 50)]\n+    \n     private ?string $name = null;\n \n     #[ORM\\Column(type: Types::TEXT)]\n     private ?string $description = null;\n"
+                },
+                {
+                    "date": 1750767194512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,14 @@\n     #[ORM\\Column]\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 50)]\n-    \n+    #[Assert\\Length(\n+        min: 2,\n+        max: 50,\n+        minMessage: 'The name must be at least {{ limit }} characters long',\n+        maxMessage: 'The name cannot be longer than {{ limit }} characters'\n+    )]\n     private ?string $name = null;\n \n     #[ORM\\Column(type: Types::TEXT)]\n     private ?string $description = null;\n@@ -34,9 +39,10 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    #[ORM\\Column(nullable: true)]   \n+    #[ORM\\Column(nullable: true)]  \n+        \n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n"
+                },
+                {
+                    "date": 1750767200521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n     #[ORM\\Column(nullable: true)]  \n-        \n+    #[]\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n"
+                },
+                {
+                    "date": 1750767206593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n     #[ORM\\Column(nullable: true)]  \n-    #[]\n+    #[Assert\\]\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n"
+                },
+                {
+                    "date": 1750767214085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,10 @@\n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n     #[ORM\\Column(nullable: true)]  \n-    #[Assert\\]\n+    #[Assert\\Positive()]\n+    \n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?string $nbPeople = null;\n"
+                },
+                {
+                    "date": 1750767220894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,12 +42,13 @@\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n     \n+\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n-    private ?string $nbPeople = null;\n+    private ?int $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n \n"
+                },
+                {
+                    "date": 1750767226982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     private Collection $ingredients;\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n-    \n+    #[Assert\\LessThan(1441)] // Assuming time is in minutes, max\n \n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n"
+                },
+                {
+                    "date": 1750767234892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,13 +41,14 @@\n     private Collection $ingredients;\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n-    #[Assert\\LessThan(1441)] // Assuming time is in minutes, max\n+    #[Assert\\LessThan(1441)] \n \n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n+    \n     private ?int $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n"
+                },
+                {
+                    "date": 1750767241204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n \n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n-    \n+    #[Assert\\Positive()]\n     private ?int $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n"
+                },
+                {
+                    "date": 1750767247031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n+    #[Assert\\LessThan(1441)]\n     private ?int $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?int $difficulty = null;\n"
+                },
+                {
+                    "date": 1750767266111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,12 +47,14 @@\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n-    #[Assert\\LessThan(1441)]\n+    #[Assert\\LessThan(51)]\n     private ?int $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n+        #[Assert\\Positive()]\n+    #[Assert\\LessThan(51)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750767272325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     private ?int $nbPeople = null;\n \n     #[ORM\\Column(nullable: true)]\n         #[Assert\\Positive()]\n-    #[Assert\\LessThan(51)]\n+    #[Assert\\LessThan(6)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     private ?bool $price = null;\n"
+                },
+                {
+                    "date": 1750767291383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n     )]\n     private ?string $name = null;\n \n     #[ORM\\Column(type: Types::TEXT)]\n+    \n     private ?string $description = null;\n \n     #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n     private ?\\DateTimeInterface $createdAt = null;\n"
+                },
+                {
+                    "date": 1750767301243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     )]\n     private ?string $name = null;\n \n     #[ORM\\Column(type: Types::TEXT)]\n-    \n+    #[Assert\\NotBlank()]\n     private ?string $description = null;\n \n     #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n     private ?\\DateTimeInterface $createdAt = null;\n"
+                },
+                {
+                    "date": 1750767309153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,8 +57,9 @@\n     #[Assert\\LessThan(6)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n+\n     private ?bool $price = null;\n \n     #[ORM\\Column]\n     private ?\\DateTimeImmutable $updated_at = null;\n"
+                },
+                {
+                    "date": 1750767315740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,11 +57,11 @@\n     #[Assert\\LessThan(6)]\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n+    #[Assert\\Positive()]\n+    private ?float $price = null;\n \n-    private ?bool $price = null;\n-\n     #[ORM\\Column]\n     private ?\\DateTimeImmutable $updated_at = null;\n \n     public function __construct()\n"
+                },
+                {
+                    "date": 1750767321425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n     private ?int $difficulty = null;\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n+    #[Assert\\LessThan(1001)]\n     private ?float $price = null;\n \n     #[ORM\\Column]\n     private ?\\DateTimeImmutable $updated_at = null;\n"
+                },
+                {
+                    "date": 1750767338687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,9 @@\n     #[Assert\\NotBlank()]\n     private ?string $description = null;\n \n     #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n+    \n     private ?\\DateTimeInterface $createdAt = null;\n \n     #[ORM\\Column]\n     private ?bool $isFavorite = null;\n"
+                },
+                {
+                    "date": 1750767347365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     #[Assert\\NotBlank()]\n     private ?string $description = null;\n \n     #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n-    \n+    #\n     private ?\\DateTimeInterface $createdAt = null;\n \n     #[ORM\\Column]\n     private ?bool $isFavorite = null;\n"
+                },
+                {
+                    "date": 1750767352518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     #[Assert\\NotBlank()]\n     private ?string $description = null;\n \n     #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n-    #\n+    #[Assert\\NotNull()]\n     private ?\\DateTimeInterface $createdAt = null;\n \n     #[ORM\\Column]\n     private ?bool $isFavorite = null;\n"
+                },
+                {
+                    "date": 1750767378004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,10 @@\n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1001)]\n     private ?float $price = null;\n \n-    #[ORM\\Column]\n+    #[ORM\\Column]       \n+    #[Assert\\NotNull()]\n     private ?\\DateTimeImmutable $updated_at = null;\n \n     public function __construct()\n     {\n"
+                },
+                {
+                    "date": 1750767398649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,9 @@\n     private ?bool $isFavorite = null;\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n+    public\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)] \n"
+                },
+                {
+                    "date": 1750767411509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,15 @@\n     private ?bool $isFavorite = null;\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n-    public\n+    \n+    public function __construct()\n+    {\n+        $this->ingredients = new ArrayCollection();\n+        $this->createdAt = new \\DateTimeImmutable();\n+        $this->updated_at = new \\DateTimeImmutable();\n+    }\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)] \n"
+                },
+                {
+                    "date": 1750767422171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,10 @@\n     private ?bool $isFavorite = null;\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n-    \n-    public function __construct()\n+\n+    public function __constu()\n     {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n"
+                },
+                {
+                    "date": 1750767430147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,19 +41,18 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    public function __constu()\n+    public function __construct()\n     {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n-    #[Assert\\LessThan(1441)] \n-\n+    #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767436419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,18 +41,20 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    public function __construct()\n+    public function __constu\n+    ()\n     {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n-    #[Assert\\LessThan(1441)]\n+    #[Assert\\LessThan(1441)] \n+\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767531148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,20 +41,19 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    public function __constu\n-    ()\n+    public function __construct()\n     {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n+    \n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n-    #[Assert\\LessThan(1441)] \n-\n+    #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767536959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,11 @@\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n+\n     \n+\n     #[ORM\\Column(nullable: true)]  \n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n"
+                },
+                {
+                    "date": 1750767543510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,12 +48,12 @@\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n+ #\n \n-    \n \n-    #[ORM\\Column(nullable: true)]  \n+    #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n \n"
+                },
+                {
+                    "date": 1750767549630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n- #\n+ #[ORM\\]\n \n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767560160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,11 +48,16 @@\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n- #[ORM\\]\n+ #[ORM\\PrePersist]\n+    public function prePersist(): void\n+    {\n+        if ($this->isFavorite === null) {\n+            $this->isFavorite = false;\n+        }\n+    }\n \n-\n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n"
+                },
+                {
+                    "date": 1750767567281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,11 +51,9 @@\n \n  #[ORM\\PrePersist]\n     public function prePersist(): void\n     {\n-        if ($this->isFavorite === null) {\n-            $this->isFavorite = false;\n-        }\n+        $this\n     }\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767572702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n \n  #[ORM\\PrePersist]\n     public function prePersist(): void\n     {\n-        $this\n+        $this->createdAt\n     }\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767578380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n \n  #[ORM\\PrePersist]\n     public function prePersist(): void\n     {\n-        $this->createdAt\n+        $this->updated_at = new \\DateTimeImmutable();\n     }\n \n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n"
+                },
+                {
+                    "date": 1750767598695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n #[UniqueEntity('name')]\n+\n class Recipe\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n"
+                },
+                {
+                    "date": 1750767604203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n #[UniqueEntity('name')]\n-\n+#[]\n class Recipe\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n"
+                },
+                {
+                    "date": 1750767643245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n #[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n #[UniqueEntity('name')]\n-#[]\n+#[ORM\\HasLifecycleCallbacks]\n class Recipe\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n@@ -49,14 +49,10 @@\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n \n- #[ORM\\PrePersist]\n-    public function prePersist(): void\n-    {\n-        $this->updated_at = new \\DateTimeImmutable();\n-    }\n \n+\n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n"
+                },
+                {
+                    "date": 1750767648980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,8 +73,14 @@\n     private ?float $price = null;\n \n     #[ORM\\Column]       \n     #[Assert\\NotNull()]\n+\n+     #[ORM\\PrePersist]\n+    public function prePersist(): void\n+    {\n+        $this->updated_at = new \\DateTimeImmutable();\n+    }\n     private ?\\DateTimeImmutable $updated_at = null;\n \n     public function __construct()\n     {\n"
+                },
+                {
+                    "date": 1750767680262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,14 +42,9 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    public function __construct()\n-    {\n-        $this->ingredients = new ArrayCollection();\n-        $this->createdAt = new \\DateTimeImmutable();\n-        $this->updated_at = new \\DateTimeImmutable();\n-    }\n+   \n \n \n \n     #[ORM\\Column(nullable: true)]\n"
+                },
+                {
+                    "date": 1750767692529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,14 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-   \n+    public function __construct()\n+    {\n+        $this->ingredients = new ArrayCollection();\n+        $this->createdAt = new \\DateTimeImmutable();\n+        $this->isFavorite = false;\n+    }\n \n \n \n     #[ORM\\Column(nullable: true)]\n"
+                },
+                {
+                    "date": 1750767873705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,17 +42,14 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    public function __construct()\n-    {\n-        $this->ingredients = new ArrayCollection();\n-        $this->createdAt = new \\DateTimeImmutable();\n-        $this->isFavorite = false;\n-    }\n+    \n \n+   \n \n \n+\n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n"
+                },
+                {
+                    "date": 1750767879758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,14 @@\n \n     #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-    \n+    public function __construct()\n+    {\n+        $this->ingredients = new ArrayCollection();\n+        $this->createdAt = new \\DateTimeImmutable();\n+        $this->up = false;\n+    }\n \n    \n \n \n"
+                },
+                {
+                    "date": 1750767886581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,15 +46,13 @@\n     public function __construct()\n     {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n-        $this->up = false;\n+        $this->updated_at = new \\DateTimeImmutable();\n     }\n \n    \n \n-\n-\n     #[ORM\\Column(nullable: true)]\n     #[Assert\\Positive()]\n     #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n"
+                },
+                {
+                    "date": 1750767930833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,217 +9,188 @@\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n-#[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n-#[UniqueEntity('name')]\n-#[ORM\\HasLifecycleCallbacks]\n-class Recipe\n-{\n-    #[ORM\\Id]\n-    #[ORM\\GeneratedValue]\n-    #[ORM\\Column]\n+#[ ORM\\Entity( repositoryClass: RecipeRepository::class ) ]\n+#[ UniqueEntity( 'name' ) ]\n+#[ ORM\\HasLifecycleCallbacks ]\n+\n+class Recipe {\n+    #[ ORM\\Id ]\n+    #[ ORM\\GeneratedValue ]\n+    #[ ORM\\Column ]\n     private ?int $id = null;\n \n-    #[ORM\\Column(length: 50)]\n-    #[Assert\\Length(\n+    #[ ORM\\Column( length: 50 ) ]\n+    #[ Assert\\Length(\n         min: 2,\n         max: 50,\n         minMessage: 'The name must be at least {{ limit }} characters long',\n         maxMessage: 'The name cannot be longer than {{ limit }} characters'\n-    )]\n+    ) ]\n     private ?string $name = null;\n \n-    #[ORM\\Column(type: Types::TEXT)]\n-    #[Assert\\NotBlank()]\n+    #[ ORM\\Column( type: Types::TEXT ) ]\n+    #[ Assert\\NotBlank() ]\n     private ?string $description = null;\n \n-    #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n-    #[Assert\\NotNull()]\n+    #[ ORM\\Column( type: Types::DATETIME_MUTABLE ) ]\n+    #[ Assert\\NotNull() ]\n     private ?\\DateTimeInterface $createdAt = null;\n \n-    #[ORM\\Column]\n+    #[ ORM\\Column ]\n     private ?bool $isFavorite = null;\n \n-    #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n+    #[ ORM\\ManyToMany( targetEntity: Ingredient::class, inversedBy: 'recipes' ) ]\n     private Collection $ingredients;\n \n-    public function __construct()\n-    {\n-        $this->ingredients = new ArrayCollection();\n-        $this->createdAt = new \\DateTimeImmutable();\n-        $this->updated_at = new \\DateTimeImmutable();\n-    }\n+  \n \n-   \n-\n-    #[ORM\\Column(nullable: true)]\n-    #[Assert\\Positive()]\n-    #[Assert\\LessThan(1441)]\n+    #[ ORM\\Column( nullable: true ) ]\n+    #[ Assert\\Positive() ]\n+    #[ Assert\\LessThan( 1441 ) ]\n     private ?int $time = null;\n \n-    #[ORM\\Column(nullable: true)]\n-    #[Assert\\Positive()]\n-    #[Assert\\LessThan(51)]\n+    #[ ORM\\Column( nullable: true ) ]\n+    #[ Assert\\Positive() ]\n+    #[ Assert\\LessThan( 51 ) ]\n     private ?int $nbPeople = null;\n \n-    #[ORM\\Column(nullable: true)]\n-        #[Assert\\Positive()]\n-    #[Assert\\LessThan(6)]\n+    #[ ORM\\Column( nullable: true ) ]\n+    #[ Assert\\Positive() ]\n+    #[ Assert\\LessThan( 6 ) ]\n     private ?int $difficulty = null;\n \n-    #[ORM\\Column(nullable: true)]\n-    #[Assert\\Positive()]\n-    #[Assert\\LessThan(1001)]\n+    #[ ORM\\Column( nullable: true ) ]\n+    #[ Assert\\Positive() ]\n+    #[ Assert\\LessThan( 1001 ) ]\n     private ?float $price = null;\n \n-    #[ORM\\Column]       \n-    #[Assert\\NotNull()]\n+    #[ ORM\\Column ]\n+    #[ Assert\\NotNull() ]\n \n-     #[ORM\\PrePersist]\n-    public function prePersist(): void\n-    {\n+    #[ ORM\\PrePersist ]\n+\n+    public function prePersist(): void {\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n     private ?\\DateTimeImmutable $updated_at = null;\n \n-    public function __construct()\n-    {\n+    public function __construct() {\n         $this->ingredients = new ArrayCollection();\n     }\n \n-    public function getId(): ?int\n-    {\n+    public function getId(): ?int {\n         return $this->id;\n     }\n \n-    public function getName(): ?string\n-    {\n+    public function getName(): ?string {\n         return $this->name;\n     }\n \n-    public function setName(string $name): self\n-    {\n+    public function setName( string $name ): self {\n         $this->name = $name;\n \n         return $this;\n     }\n \n-    public function getDescription(): ?string\n-    {\n+    public function getDescription(): ?string {\n         return $this->description;\n     }\n \n-    public function setDescription(string $description): self\n-    {\n+    public function setDescription( string $description ): self {\n         $this->description = $description;\n \n         return $this;\n     }\n \n-    public function getCreatedAt(): ?\\DateTimeImmutable\n-    {\n+    public function getCreatedAt(): ?\\DateTimeImmutable {\n         return $this->createdAt;\n     }\n \n-    public function setCreatedAt(\\DateTimeImmutable $createdAt): self\n-    {\n+    public function setCreatedAt( \\DateTimeImmutable $createdAt ): self {\n         $this->createdAt = $createdAt;\n \n         return $this;\n     }\n \n-    public function isIsFavorite(): ?bool\n-    {\n+    public function isIsFavorite(): ?bool {\n         return $this->isFavorite;\n     }\n \n-    public function setIsFavorite(bool $isFavorite): self\n-    {\n+    public function setIsFavorite( bool $isFavorite ): self {\n         $this->isFavorite = $isFavorite;\n \n         return $this;\n     }\n \n     /**\n-     * @return Collection<int, Ingredient>\n-     */\n-    public function getIngredients(): Collection\n-    {\n+    * @return Collection<int, Ingredient>\n+    */\n+\n+    public function getIngredients(): Collection {\n         return $this->ingredients;\n     }\n \n-    public function addIngredient(Ingredient $ingredient): self\n-    {\n-        if (!$this->ingredients->contains($ingredient)) {\n-            $this->ingredients->add($ingredient);\n+    public function addIngredient( Ingredient $ingredient ): self {\n+        if ( !$this->ingredients->contains( $ingredient ) ) {\n+            $this->ingredients->add( $ingredient );\n         }\n \n         return $this;\n     }\n \n-    public function removeIngredient(Ingredient $ingredient): self\n-    {\n-        $this->ingredients->removeElement($ingredient);\n+    public function removeIngredient( Ingredient $ingredient ): self {\n+        $this->ingredients->removeElement( $ingredient );\n \n         return $this;\n     }\n \n-    public function getTime(): ?int\n-    {\n+    public function getTime(): ?int {\n         return $this->time;\n     }\n \n-    public function setTime(?int $time): self\n-    {\n+    public function setTime( ?int $time ): self {\n         $this->time = $time;\n \n         return $this;\n     }\n \n-    public function getNbPeople(): ?int\n-    {\n+    public function getNbPeople(): ?int {\n         return $this->nbPeople;\n     }\n \n-    public function setNbPeople(int $nbPeople): self\n-    {\n+    public function setNbPeople( int $nbPeople ): self {\n         $this->nbPeople = $nbPeople;\n \n         return $this;\n     }\n \n-    public function getDifficulty(): ?int\n-    {\n+    public function getDifficulty(): ?int {\n         return $this->difficulty;\n     }\n \n-    public function setDifficulty(?int $difficulty): self\n-    {\n+    public function setDifficulty( ?int $difficulty ): self {\n         $this->difficulty = $difficulty;\n \n         return $this;\n     }\n \n-    public function getPrice(): ?float\n-    {\n+    public function getPrice(): ?float {\n         return $this->price;\n     }\n \n-    public function setPrice(?float $price): self\n-    {\n+    public function setPrice( ?float $price ): self {\n         $this->price = $price;\n \n         return $this;\n     }\n \n-    public function getUpdatedAt(): ?\\DateTimeImmutable\n-    {\n+    public function getUpdatedAt(): ?\\DateTimeImmutable {\n         return $this->updated_at;\n     }\n \n-    public function setUpdatedAt(\\DateTimeImmutable $updated_at): self\n-    {\n+    public function setUpdatedAt( \\DateTimeImmutable $updated_at ): self {\n         $this->updated_at = $updated_at;\n \n         return $this;\n     }\n"
+                },
+                {
+                    "date": 1750767937259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,14 @@\n     private ?\\DateTimeImmutable $updated_at = null;\n \n     public function __construct() {\n         $this->ingredients = new ArrayCollection();\n+          public function __construct() {\n+        $this->ingredients = new ArrayCollection();\n+        $this->createdAt = new \\DateTimeImmutable();\n+        $this->updated_at = new \\DateTimeImmutable();\n     }\n+    }\n \n     public function getId(): ?int {\n         return $this->id;\n     }\n"
+                },
+                {
+                    "date": 1750767944067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,10 +74,9 @@\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n     private ?\\DateTimeImmutable $updated_at = null;\n \n-    public function __construct() {\n-        $this->ingredients = new ArrayCollection();\n+    #[ ORM\\PreUpdate ]\n           public function __construct() {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n"
+                },
+                {
+                    "date": 1750767951076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,193 +9,200 @@\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n \n-#[ ORM\\Entity( repositoryClass: RecipeRepository::class ) ]\n-#[ UniqueEntity( 'name' ) ]\n-#[ ORM\\HasLifecycleCallbacks ]\n-\n-class Recipe {\n-    #[ ORM\\Id ]\n-    #[ ORM\\GeneratedValue ]\n-    #[ ORM\\Column ]\n+#[ORM\\Entity(repositoryClass: RecipeRepository::class)]\n+#[UniqueEntity('name')]\n+#[ORM\\HasLifecycleCallbacks]\n+class Recipe\n+{\n+    #[ORM\\Id]\n+    #[ORM\\GeneratedValue]\n+    #[ORM\\Column]\n     private ?int $id = null;\n \n-    #[ ORM\\Column( length: 50 ) ]\n-    #[ Assert\\Length(\n+    #[ORM\\Column(length: 50)]\n+    #[Assert\\Length(\n         min: 2,\n         max: 50,\n         minMessage: 'The name must be at least {{ limit }} characters long',\n         maxMessage: 'The name cannot be longer than {{ limit }} characters'\n-    ) ]\n+    )]\n     private ?string $name = null;\n \n-    #[ ORM\\Column( type: Types::TEXT ) ]\n-    #[ Assert\\NotBlank() ]\n+    #[ORM\\Column(type: Types::TEXT)]\n+    #[Assert\\NotBlank()]\n     private ?string $description = null;\n \n-    #[ ORM\\Column( type: Types::DATETIME_MUTABLE ) ]\n-    #[ Assert\\NotNull() ]\n+    #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n+    #[Assert\\NotNull()]\n     private ?\\DateTimeInterface $createdAt = null;\n \n-    #[ ORM\\Column ]\n+    #[ORM\\Column]\n     private ?bool $isFavorite = null;\n \n-    #[ ORM\\ManyToMany( targetEntity: Ingredient::class, inversedBy: 'recipes' ) ]\n+    #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n     private Collection $ingredients;\n \n-  \n-\n-    #[ ORM\\Column( nullable: true ) ]\n-    #[ Assert\\Positive() ]\n-    #[ Assert\\LessThan( 1441 ) ]\n+    #[ORM\\Column(nullable: true)]\n+    #[Assert\\Positive()]\n+    #[Assert\\LessThan(1441)]\n     private ?int $time = null;\n \n-    #[ ORM\\Column( nullable: true ) ]\n-    #[ Assert\\Positive() ]\n-    #[ Assert\\LessThan( 51 ) ]\n+    #[ORM\\Column(nullable: true)]\n+    #[Assert\\Positive()]\n+    #[Assert\\LessThan(51)]\n     private ?int $nbPeople = null;\n \n-    #[ ORM\\Column( nullable: true ) ]\n-    #[ Assert\\Positive() ]\n-    #[ Assert\\LessThan( 6 ) ]\n+    #[ORM\\Column(nullable: true)]\n+    #[Assert\\Positive()]\n+    #[Assert\\LessThan(6)]\n     private ?int $difficulty = null;\n \n-    #[ ORM\\Column( nullable: true ) ]\n-    #[ Assert\\Positive() ]\n-    #[ Assert\\LessThan( 1001 ) ]\n+    #[ORM\\Column(nullable: true)]\n+    #[Assert\\Positive()]\n+    #[Assert\\LessThan(1001)]\n     private ?float $price = null;\n \n-    #[ ORM\\Column ]\n-    #[ Assert\\NotNull() ]\n-\n-    #[ ORM\\PrePersist ]\n-\n-    public function prePersist(): void {\n-        $this->updated_at = new \\DateTimeImmutable();\n-    }\n+    #[ORM\\Column]\n+    #[Assert\\NotNull()]\n     private ?\\DateTimeImmutable $updated_at = null;\n \n-    #[ ORM\\PreUpdate ]\n-          public function __construct() {\n+    public function __construct()\n+    {\n         $this->ingredients = new ArrayCollection();\n         $this->createdAt = new \\DateTimeImmutable();\n         $this->updated_at = new \\DateTimeImmutable();\n     }\n+\n+    #[ORM\\PrePersist]\n+    public function prePersist(): void\n+    {\n+        $this->updated_at = new \\DateTimeImmutable();\n     }\n \n-    public function getId(): ?int {\n+    public function getId(): ?int\n+    {\n         return $this->id;\n     }\n \n-    public function getName(): ?string {\n+    public function getName(): ?string\n+    {\n         return $this->name;\n     }\n \n-    public function setName( string $name ): self {\n+    public function setName(string $name): self\n+    {\n         $this->name = $name;\n-\n         return $this;\n     }\n \n-    public function getDescription(): ?string {\n+    public function getDescription(): ?string\n+    {\n         return $this->description;\n     }\n \n-    public function setDescription( string $description ): self {\n+    public function setDescription(string $description): self\n+    {\n         $this->description = $description;\n-\n         return $this;\n     }\n \n-    public function getCreatedAt(): ?\\DateTimeImmutable {\n+    public function getCreatedAt(): ?\\DateTimeInterface\n+    {\n         return $this->createdAt;\n     }\n \n-    public function setCreatedAt( \\DateTimeImmutable $createdAt ): self {\n+    public function setCreatedAt(\\DateTimeInterface $createdAt): self\n+    {\n         $this->createdAt = $createdAt;\n-\n         return $this;\n     }\n \n-    public function isIsFavorite(): ?bool {\n+    public function isIsFavorite(): ?bool\n+    {\n         return $this->isFavorite;\n     }\n \n-    public function setIsFavorite( bool $isFavorite ): self {\n+    public function setIsFavorite(bool $isFavorite): self\n+    {\n         $this->isFavorite = $isFavorite;\n-\n         return $this;\n     }\n \n     /**\n-    * @return Collection<int, Ingredient>\n-    */\n-\n-    public function getIngredients(): Collection {\n+     * @return Collection<int, Ingredient>\n+     */\n+    public function getIngredients(): Collection\n+    {\n         return $this->ingredients;\n     }\n \n-    public function addIngredient( Ingredient $ingredient ): self {\n-        if ( !$this->ingredients->contains( $ingredient ) ) {\n-            $this->ingredients->add( $ingredient );\n+    public function addIngredient(Ingredient $ingredient): self\n+    {\n+        if (!$this->ingredients->contains($ingredient)) {\n+            $this->ingredients->add($ingredient);\n         }\n-\n         return $this;\n     }\n \n-    public function removeIngredient( Ingredient $ingredient ): self {\n-        $this->ingredients->removeElement( $ingredient );\n-\n+    public function removeIngredient(Ingredient $ingredient): self\n+    {\n+        $this->ingredients->removeElement($ingredient);\n         return $this;\n     }\n \n-    public function getTime(): ?int {\n+    public function getTime(): ?int\n+    {\n         return $this->time;\n     }\n \n-    public function setTime( ?int $time ): self {\n+    public function setTime(?int $time): self\n+    {\n         $this->time = $time;\n-\n         return $this;\n     }\n \n-    public function getNbPeople(): ?int {\n+    public function getNbPeople(): ?int\n+    {\n         return $this->nbPeople;\n     }\n \n-    public function setNbPeople( int $nbPeople ): self {\n+    public function setNbPeople(?int $nbPeople): self\n+    {\n         $this->nbPeople = $nbPeople;\n-\n         return $this;\n     }\n \n-    public function getDifficulty(): ?int {\n+    public function getDifficulty(): ?int\n+    {\n         return $this->difficulty;\n     }\n \n-    public function setDifficulty( ?int $difficulty ): self {\n+    public function setDifficulty(?int $difficulty): self\n+    {\n         $this->difficulty = $difficulty;\n-\n         return $this;\n     }\n \n-    public function getPrice(): ?float {\n+    public function getPrice(): ?float\n+    {\n         return $this->price;\n     }\n \n-    public function setPrice( ?float $price ): self {\n+    public function setPrice(?float $price): self\n+    {\n         $this->price = $price;\n-\n         return $this;\n     }\n \n-    public function getUpdatedAt(): ?\\DateTimeImmutable {\n+    public function getUpdatedAt(): ?\\DateTimeImmutable\n+    {\n         return $this->updated_at;\n     }\n \n-    public function setUpdatedAt( \\DateTimeImmutable $updated_at ): self {\n+    public function setUpdatedAt(\\DateTimeImmutable $updated_at): self\n+    {\n         $this->updated_at = $updated_at;\n-\n         return $this;\n     }\n }\n"
+                }
+            ],
+            "date": 1750766319720,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\RecipeRepository;\nuse Doctrine\\Common\\Collections\\ArrayCollection;\nuse Doctrine\\Common\\Collections\\Collection;\nuse Doctrine\\DBAL\\Types\\Types;\nuse Doctrine\\ORM\\Mapping as ORM;\n\n#[ORM\\Entity(repositoryClass: RecipeRepository::class)]\nclass Recipe\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 50)]\n    private ?string $name = null;\n\n    #[ORM\\Column(type: Types::TEXT)]\n    private ?string $description = null;\n\n    #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n    private ?\\DateTimeInterface $createdAt = null;\n\n    #[ORM\\Column]\n    private ?bool $isFavorite = null;\n\n    #[ORM\\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'recipes')]\n    private Collection $ingredients;\n\n    #[ORM\\Column(type: Types::TIME_MUTABLE)]\n    private ?\\DateTimeInterface $time = null;\n\n    #[ORM\\Column(length: true)]\n    private ?string $nbPeople = null;\n\n    #[ORM\\Column(nullable: true)]\n    private ?int $difficulty = null;\n\n    #[ORM\\Column(nullable: true)]\n    private ?bool $price = null;\n\n    #[ORM\\Column]\n    private ?\\DateTimeImmutable $updated_at = null;\n\n    public function __construct()\n    {\n        $this->ingredients = new ArrayCollection();\n    }\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getName(): ?string\n    {\n        return $this->name;\n    }\n\n    public function setName(string $name): static\n    {\n        $this->name = $name;\n\n        return $this;\n    }\n\n    public function getDescription(): ?string\n    {\n        return $this->description;\n    }\n\n    public function setDescription(string $description): static\n    {\n        $this->description = $description;\n\n        return $this;\n    }\n\n    public function getCreatedAt(): ?\\DateTimeInterface\n    {\n        return $this->createdAt;\n    }\n\n    public function setCreatedAt(\\DateTimeInterface $createdAt): static\n    {\n        $this->createdAt = $createdAt;\n\n        return $this;\n    }\n\n    public function isIsFavorite(): ?bool\n    {\n        return $this->isFavorite;\n    }\n\n    public function setIsFavorite(bool $isFavorite): static\n    {\n        $this->isFavorite = $isFavorite;\n\n        return $this;\n    }\n\n    /**\n     * @return Collection<int, Ingredient>\n     */\n    public function getIngredients(): Collection\n    {\n        return $this->ingredients;\n    }\n\n    public function addIngredient(Ingredient $ingredient): static\n    {\n        if (!$this->ingredients->contains($ingredient)) {\n            $this->ingredients->add($ingredient);\n        }\n\n        return $this;\n    }\n\n    public function removeIngredient(Ingredient $ingredient): static\n    {\n        $this->ingredients->removeElement($ingredient);\n\n        return $this;\n    }\n\n    public function getTime(): ?\\DateTimeInterface\n    {\n        return $this->time;\n    }\n\n    public function setTime(\\DateTimeInterface $time): static\n    {\n        $this->time = $time;\n\n        return $this;\n    }\n\n    public function getNbPeople(): ?string\n    {\n        return $this->nbPeople;\n    }\n\n    public function setNbPeople(string $nbPeople): static\n    {\n        $this->nbPeople = $nbPeople;\n\n        return $this;\n    }\n\n    public function getDifficulty(): ?int\n    {\n        return $this->difficulty;\n    }\n\n    public function setDifficulty(?int $difficulty): static\n    {\n        $this->difficulty = $difficulty;\n\n        return $this;\n    }\n\n    public function isPrice(): ?bool\n    {\n        return $this->price;\n    }\n\n    public function setPrice(?bool $price): static\n    {\n        $this->price = $price;\n\n        return $this;\n    }\n\n    public function getUpdatedAt(): ?\\DateTimeImmutable\n    {\n        return $this->updated_at;\n    }\n\n    public function setUpdatedAt(\\DateTimeImmutable $updated_at): static\n    {\n        $this->updated_at = $updated_at;\n\n        return $this;\n    }\n}\n"
+        }
+    ]
+}

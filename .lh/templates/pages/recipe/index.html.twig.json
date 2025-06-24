@@ -1,0 +1,414 @@
+{
+    "sourceFile": "templates/pages/recipe/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 99,
+            "patches": [
+                {
+                    "date": 1750772623486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750772631392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                 <th>actions</th>\n             </tr>\n         </thead>\n         <tbody>\n-\n+        {% for recipe in recipes %}\n             <tr>\n                 <td>{{ recipe.id }}</td>\n                 <td>{{ recipe.name }}</td>\n                 <td>{{ recipe.description }}</td>\n"
+                },
+                {
+                    "date": 1750772668452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,51 +1,51 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Recipe index{% endblock %}\n+{% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n-    <h1>Recipe index</h1>\n+    <h1 class=\"mt-4\">Liste des recettes</h1>\n \n-    <table class=\"table\">\n+    <table class=\"table table-striped\">\n         <thead>\n             <tr>\n-                <th>Id</th>\n-                <th>Name</th>\n+                <th>#</th>\n+                <th>Nom</th>\n                 <th>Description</th>\n-                <th>CreatedAt</th>\n-                <th>IsFavorite</th>\n-                <th>Time</th>\n-                <th>NbPeople</th>\n-                <th>Difficulty</th>\n-                <th>Price</th>\n-                <th>Updated_at</th>\n-                <th>actions</th>\n+                <th>Créée le</th>\n+                <th>Favori</th>\n+                <th>Temps</th>\n+                <th>Personnes</th>\n+                <th>Difficulté</th>\n+                <th>Prix</th>\n+                <th>Modifiée le</th>\n+                <th>Actions</th>\n             </tr>\n         </thead>\n         <tbody>\n         {% for recipe in recipes %}\n             <tr>\n                 <td>{{ recipe.id }}</td>\n                 <td>{{ recipe.name }}</td>\n-                <td>{{ recipe.description }}</td>\n-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>\n-                <td>{{ recipe.isFavorite ? 'Yes' : 'No' }}</td>\n-                <td>{{ recipe.time ? recipe.time|date('H:i:s') : '' }}</td>\n-                <td>{{ recipe.nbPeople }}</td>\n-                <td>{{ recipe.difficulty }}</td>\n-                <td>{{ recipe.price ? 'Yes' : 'No' }}</td>\n-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>\n+                <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n+                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i') : '' }}</td>\n+                <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n+                <td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n+                <td>{{ recipe.nbPeople ?? '-' }}</td>\n+                <td>{{ recipe.difficulty ?? '-' }}</td>\n+                <td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n+                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i') : '' }}</td>\n                 <td>\n-                    <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\">show</a>\n-                    <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\">edit</a>\n+                    <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n+                    <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n                 </td>\n             </tr>\n         {% else %}\n             <tr>\n-                <td colspan=\"11\">no records found</td>\n+                <td colspan=\"11\" class=\"text-center\">Aucune recette trouvée.</td>\n             </tr>\n         {% endfor %}\n         </tbody>\n     </table>\n \n-    <a href=\"{{ path('app_recipe_new') }}\">Create new</a>\n+    <a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750773021145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n-    <h1 class=\"mt-4\">Liste des recettes</h1>\n+    <h1 class=\"mt-4\"\n \n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n@@ -26,15 +26,15 @@\n             <tr>\n                 <td>{{ recipe.id }}</td>\n                 <td>{{ recipe.name }}</td>\n                 <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i') : '' }}</td>\n+                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n                 <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n                 <td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n                 <td>{{ recipe.nbPeople ?? '-' }}</td>\n                 <td>{{ recipe.difficulty ?? '-' }}</td>\n                 <td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i') : '' }}</td>\n+                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n                 <td>\n                     <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n                     <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n                 </td>\n"
+                },
+                {
+                    "date": 1750773028570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,12 @@\n \n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n-    <h1 class=\"mt-4\"\n+    <div class=\"mt-4\">\n \n+    \n+\n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n                 <th>#</th>\n"
+                },
+                {
+                    "date": 1750773034875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n {% block body %}\n     <div class=\"mt-4\">\n \n-    \n+    >Liste des recettes</h1>\n \n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n"
+                },
+                {
+                    "date": 1750773042897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n     <div class=\"mt-4\">\n+    {%}\n+        <h1>Liste des recettes</h1>\n \n-    >Liste des recettes</h1>\n-\n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n                 <th>#</th>\n"
+                },
+                {
+                    "date": 1750773050898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n     <div class=\"mt-4\">\n-    {%}\n+    {% if not }\n         <h1>Liste des recettes</h1>\n \n     <table class=\"table table-striped\">\n         <thead>\n"
+                },
+                {
+                    "date": 1750773056643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n     <div class=\"mt-4\">\n-    {% if not }\n+    {% if not recipes. %}\n         <h1>Liste des recettes</h1>\n \n     <table class=\"table table-striped\">\n         <thead>\n"
+                },
+                {
+                    "date": 1750773064223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n     <div class=\"mt-4\">\n-    {% if not recipes. %}\n+    {% if not recipes.items is same as %}\n         <h1>Liste des recettes</h1>\n \n     <table class=\"table table-striped\">\n         <thead>\n"
+                },
+                {
+                    "date": 1750773076433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,13 @@\n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n     <div class=\"mt-4\">\n-    {% if not recipes.items is same as %}\n+    {% if not recipes.items is same as([]) %}\n         <h1>Liste des recettes</h1>\n \n+\n+\n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n                 <th>#</th>\n"
+                },
+                {
+                    "date": 1750773082626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n-    <div class=\"mt-4\">\n+    <div class=\"consimt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Liste des recettes</h1>\n \n \n"
+                },
+                {
+                    "date": 1750773100221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n \n {% block title %}Liste des recettes{% endblock %}\n \n {% block body %}\n-    <div class=\"consimt-4\">\n+    <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n-        <h1>Liste des recettes</h1>\n+        <h1>Mes recettes</h1>\n \n \n \n     <table class=\"table table-striped\">\n"
+                },
+                {
+                    "date": 1750773112571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n {% block body %}\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n+<div class>\n \n \n-\n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n                 <th>#</th>\n"
+                },
+                {
+                    "date": 1750773117759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n-<div class>\n+<div class=\"count>\n \n \n     <table class=\"table table-striped\">\n         <thead>\n"
+                },
+                {
+                    "date": 1750773124387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n-<div class=\"count>\n+<div class=\"count mt-4\">\n \n \n     <table class=\"table table-striped\">\n         <thead>\n"
+                },
+                {
+                    "date": 1750773133524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n <div class=\"count mt-4\">\n+h\n \n-\n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n                 <th>#</th>\n"
+                },
+                {
+                    "date": 1750773144776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,55 @@\n+{% extends 'base.html.twig' %}\n+\n+{% block title %}Liste des recettes{% endblock %}\n+\n+{% block body %}\n+    <div class=\"container mt-4\">\n+    {% if not recipes.items is same as([]) %}\n+        <h1>Mes recettes</h1>\n+<div class=\"count mt-4\">\n+<h4> Il y a </h4>\n+\n+    <table class=\"table table-striped\">\n+        <thead>\n+            <tr>\n+                <th>#</th>\n+                <th>Nom</th>\n+                <th>Description</th>\n+                <th>Créée le</th>\n+                <th>Favori</th>\n+                <th>Temps</th>\n+                <th>Personnes</th>\n+                <th>Difficulté</th>\n+                <th>Prix</th>\n+                <th>Modifiée le</th>\n+                <th>Actions</th>\n+            </tr>\n+        </thead>\n+        <tbody>\n+        {% for recipe in recipes %}\n+            <tr>\n+                <td>{{ recipe.id }}</td>\n+                <td>{{ recipe.name }}</td>\n+                <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n+                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n+                <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n+                <td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n+                <td>{{ recipe.nbPeople ?? '-' }}</td>\n+                <td>{{ recipe.difficulty ?? '-' }}</td>\n+                <td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n+                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n+                <td>\n+                    <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n+                    <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n+                </td>\n+            </tr>\n+        {% else %}\n+            <tr>\n+                <td colspan=\"11\" class=\"text-center\">Aucune recette trouvée.</td>\n+            </tr>\n+        {% endfor %}\n+        </tbody>\n+    </table>\n+\n+    <a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n+{% endblock %}\n"
+                },
+                {
+                    "date": 1750773153597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n <div class=\"count mt-4\">\n-<h4> Il y a </h4>\n+<h4> Il y a {{recipes.get</h4>\n \n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n@@ -52,59 +52,4 @@\n     </table>\n \n     <a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n {% endblock %}\n-{% extends 'base.html.twig' %}\n-\n-{% block title %}Liste des recettes{% endblock %}\n-\n-{% block body %}\n-    <div class=\"container mt-4\">\n-    {% if not recipes.items is same as([]) %}\n-        <h1>Mes recettes</h1>\n-<div class=\"count mt-4\">\n-h\n-\n-    <table class=\"table table-striped\">\n-        <thead>\n-            <tr>\n-                <th>#</th>\n-                <th>Nom</th>\n-                <th>Description</th>\n-                <th>Créée le</th>\n-                <th>Favori</th>\n-                <th>Temps</th>\n-                <th>Personnes</th>\n-                <th>Difficulté</th>\n-                <th>Prix</th>\n-                <th>Modifiée le</th>\n-                <th>Actions</th>\n-            </tr>\n-        </thead>\n-        <tbody>\n-        {% for recipe in recipes %}\n-            <tr>\n-                <td>{{ recipe.id }}</td>\n-                <td>{{ recipe.name }}</td>\n-                <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n-                <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n-                <td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n-                <td>{{ recipe.nbPeople ?? '-' }}</td>\n-                <td>{{ recipe.difficulty ?? '-' }}</td>\n-                <td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n-                <td>\n-                    <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n-                    <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n-                </td>\n-            </tr>\n-        {% else %}\n-            <tr>\n-                <td colspan=\"11\" class=\"text-center\">Aucune recette trouvée.</td>\n-            </tr>\n-        {% endfor %}\n-        </tbody>\n-    </table>\n-\n-    <a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n-{% endblock %}\n"
+                },
+                {
+                    "date": 1750773160604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n <div class=\"count mt-4\">\n-<h4> Il y a {{recipes.get</h4>\n+<h4> Il y a {{<recipes class=\"getTotalItemCount\"></recipes></h4>\n \n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n"
+                },
+                {
+                    "date": 1750773178518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n     <div class=\"container mt-4\">\n     {% if not recipes.items is same as([]) %}\n         <h1>Mes recettes</h1>\n <div class=\"count mt-4\">\n-<h4> Il y a {{<recipes class=\"getTotalItemCount\"></recipes></h4>\n-\n+<h4> Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n+</div>\n     <table class=\"table table-striped\">\n         <thead>\n             <tr>\n                 <th>#</th>\n"
+                },
+                {
+                    "date": 1750773187306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,55 +1,58 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Liste des recettes{% endblock %}\n+{% block title %}Liste des recettes\n+{% endblock %}\n \n {% block body %}\n-    <div class=\"container mt-4\">\n-    {% if not recipes.items is same as([]) %}\n-        <h1>Mes recettes</h1>\n-<div class=\"count mt-4\">\n-<h4> Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n-</div>\n-    <table class=\"table table-striped\">\n-        <thead>\n-            <tr>\n-                <th>#</th>\n-                <th>Nom</th>\n-                <th>Description</th>\n-                <th>Créée le</th>\n-                <th>Favori</th>\n-                <th>Temps</th>\n-                <th>Personnes</th>\n-                <th>Difficulté</th>\n-                <th>Prix</th>\n-                <th>Modifiée le</th>\n-                <th>Actions</th>\n-            </tr>\n-        </thead>\n-        <tbody>\n-        {% for recipe in recipes %}\n-            <tr>\n-                <td>{{ recipe.id }}</td>\n-                <td>{{ recipe.name }}</td>\n-                <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n-                <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n-                <td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n-                <td>{{ recipe.nbPeople ?? '-' }}</td>\n-                <td>{{ recipe.difficulty ?? '-' }}</td>\n-                <td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n-                <td>\n-                    <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n-                    <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n-                </td>\n-            </tr>\n-        {% else %}\n-            <tr>\n-                <td colspan=\"11\" class=\"text-center\">Aucune recette trouvée.</td>\n-            </tr>\n-        {% endfor %}\n-        </tbody>\n-    </table>\n+\t<div class=\"container mt-4\">\n+\t\t{% if not recipes.items is same as([]) %}\n+\t\t\t<h1>Mes recettes</h1>\n+\t\t\t<div class=\"count mt-4\">\n+\t\t\t\t<h4>\n+\t\t\t\t\tIl y a{{ recipes.getTotalItemCount() }}\n+\t\t\t\t\trecettes</h4>\n+\t\t\t</div>\n+\t\t\t<table class=\"table table-striped\">\n+\t\t\t\t<thead>\n+\t\t\t\t\t<tr>\n+\t\t\t\t\t\t<th>#</th>\n+\t\t\t\t\t\t<th>Nom</th>\n+\t\t\t\t\t\t<th>Description</th>\n+\t\t\t\t\t\t<th>Créée le</th>\n+\t\t\t\t\t\t<th>Favori</th>\n+\t\t\t\t\t\t<th>Temps</th>\n+\t\t\t\t\t\t<th>Personnes</th>\n+\t\t\t\t\t\t<th>Difficulté</th>\n+\t\t\t\t\t\t<th>Prix</th>\n+\t\t\t\t\t\t<th>Modifiée le</th>\n+\t\t\t\t\t\t<th>Actions</th>\n+\t\t\t\t\t</tr>\n+\t\t\t\t</thead>\n+\t\t\t\t<tbody>\n+\t\t\t\t\t{% for recipe in recipes %}\n+\t\t\t\t\t\t<tr>\n+\t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.nbPeople ?? '-' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n+\t\t\t\t\t\t\t<td>\n+\t\t\t\t\t\t\t\t<a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n+\t\t\t\t\t\t\t\t<a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n+\t\t\t\t\t\t\t</td>\n+\t\t\t\t\t\t</tr>\n+\t\t\t\t\t{% else %}\n+\t\t\t\t\t\t<tr>\n+\t\t\t\t\t\t\t<td colspan=\"11\" class=\"text-center\">Aucune recette trouvée.</td>\n+\t\t\t\t\t\t</tr>\n+\t\t\t\t\t{% endfor %}\n+\t\t\t\t</tbody>\n+\t\t\t</table>\n \n-    <a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n-{% endblock %}\n+\t\t\t<a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n+\t\t{% endblock %}\n"
+                },
+                {
+                    "date": 1750773193146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n \t\t{% if not recipes.items is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>\n-\t\t\t\t\tIl y a{{ recipes.getTotalItemCount() }}\n-\t\t\t\t\trecettes</h4>\n+\t\t\t\t\tIl y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750773199171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{% if not recipes.items is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>\n-\t\t\t\t\tIl y a {{ recipes.getTotalItemCount() }} recettes</h4>\n+\t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750773211592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,5 +52,5 @@\n \t\t\t\t</tbody>\n \t\t\t</table>\n \n \t\t\t<a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n-\t\t{% endblock %}\n+\t\t{%  %}\n"
+                },
+                {
+                    "date": 1750773251095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr>\n+\t\t\t\t\t\t<tr class\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n@@ -52,5 +52,4 @@\n \t\t\t\t</tbody>\n \t\t\t</table>\n \n \t\t\t<a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n-\t\t{%  %}\n"
+                },
+                {
+                    "date": 1750773256576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr class\n+\t\t\t\t\t\t<tr class=\"\"\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773265944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr class=\"\"\n+\t\t\t\t\t\t<tr class=\"row\">\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773273188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr class=\"row\">\n+\t\t\t\t\t\t<tr class=\"row\">{{recipe.id}}\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773286422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"row\">{{recipe.id}}\n+                        <th></th>\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773291560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"row\">{{recipe.id}}\n-                        <th></th>\n+                        <th scope></th>\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773297213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"row\">{{recipe.id}}\n-                        <th scope></th>\n+                        <th scope=\"row\"></th>\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773303498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,10 @@\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"row\">{{recipe.id}}\n-                        <th scope=\"row\"></th>\n+                        <th scope=\"row\">\n+                        </th>\n \t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773310792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,10 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr class=\"row\">{{recipe.id}}\n-                        <th scope=\"row\">\n-                        </th>\n-\t\t\t\t\t\t\t<td>{{ recipe.id }}</td>\n+\t\t\t\t\t\t<tr class=\"row\">\n+                        <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n"
+                },
+                {
+                    "date": 1750773317185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr class=\"row\">\n+\t\t\t\t\t\t<tr class=\"table-primar\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n"
+                },
+                {
+                    "date": 1750773330328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n-\t\t\t\t\t\t<tr class=\"table-primar\">\n+\t\t\t\t\t\t<tr class=\"table-primary\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n@@ -39,9 +39,8 @@\n \t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>\n-\t\t\t\t\t\t\t\t<a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-primary\">Voir</a>\n \t\t\t\t\t\t\t\t<a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n \t\t\t\t\t\t\t</td>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% else %}\n"
+                },
+                {
+                    "date": 1750773336493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,8 @@\n \t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>\n-\t\t\t\t\t\t\t\t<a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>\n \t\t\t\t\t\t\t</td>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% else %}\n \t\t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750773341908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,15 +39,14 @@\n \t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>\n+                            \n \t\t\t\t\t\t\t</td>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% else %}\n \t\t\t\t\t\t<tr>\n-\t\t\t\t\t\t\t<td colspan=\"11\" class=\"text-center\">Aucune recette trouvée.</td>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n \t\t\t\t</tbody>\n \t\t\t</table>\n \n-\t\t\t<a href=\"{{ path('app_recipe_new') }}\" class=\"btn btn-success\">Créer une nouvelle recette</a>\n"
+                },
+                {
+                    "date": 1750773359732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,12 @@\n \t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>\n-                            \n+                            TODO\n \t\t\t\t\t\t\t</td>\n+                            <td>\n+                            </td>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n"
+                },
+                {
+                    "date": 1750773375737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,11 +42,12 @@\n \t\t\t\t\t\t\t<td>\n                             TODO\n \t\t\t\t\t\t\t</td>\n                             <td>\n+                            TODO\n                             </td>\n \t\t\t\t\t\t</tr>\n-\t\t\t\t\t{% else %}\n+\t\t\t\t\t\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n \t\t\t\t</tbody>\n"
+                },
+                {
+                    "date": 1750773383839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,12 +44,11 @@\n \t\t\t\t\t\t\t</td>\n                             <td>\n                             TODO\n                             </td>\n+\t\t\n+        \n \t\t\t\t\t\t</tr>\n-\t\t\t\t\t\n-\t\t\t\t\t\t<tr>\n-\t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n \t\t\t\t</tbody>\n \t\t\t</table>\n \n"
+                },
+                {
+                    "date": 1750773389282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n                             <td>\n                             TODO\n                             </td>\n \t\t\n-        \n+\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n-\t\t\t\t</tbody>\n-\t\t\t</table>\n+\t\t\t\t</>\n+\t\t\t</tabl\n \n"
+                },
+                {
+                    "date": 1750773400625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,11 +44,12 @@\n \t\t\t\t\t\t\t</td>\n                             <td>\n                             TODO\n                             </td>\n-\t\t\n+\t\t\t\t\t\t</tr>\n \n+\t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n-\t\t\t\t</>\n-\t\t\t</tabl\n+\t\t\t\t</tbody>\n+\t\t\t</table>\n \n"
+                },
+                {
+                    "date": 1750773412363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,11 +45,10 @@\n                             <td>\n                             TODO\n                             </td>\n \t\t\t\t\t\t</tr>\n-\n+                    {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n-\t\t\t\t</tbody>\n-\t\t\t</table>\n+\t\t\t\t\n \n"
+                },
+                {
+                    "date": 1750773418353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,11 @@\n                             <td>\n                             TODO\n                             </td>\n \t\t\t\t\t\t</tr>\n+                        </tbody>\n+\t\t\t</table>\n+            <div></div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n"
+                },
+                {
+                    "date": 1750773425457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                             </td>\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n-            <div></div>\n+            <div class</div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n"
+                },
+                {
+                    "date": 1750773431767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                             </td>\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n-            <div class</div>\n+            <div class=\"navigation </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n"
+                },
+                {
+                    "date": 1750773443368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                             </td>\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n-            <div class=\"navigation </div>\n+            <div class=\"navigation d-flex justify-content-centre </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n"
+                },
+                {
+                    "date": 1750773448467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,10 @@\n                             </td>\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n-            <div class=\"navigation d-flex justify-content-centre </div>\n+            <div class=\"navigation d-flex justify-content-centre\"> \n+            </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n \t\t\t\t\t{% endfor %}\n"
+                },
+                {
+                    "date": 1750773454082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,10 @@\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n             <div class=\"navigation d-flex justify-content-centre\"> \n+            \n+            \n             </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n"
+                },
+                {
+                    "date": 1750773460652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,11 +47,9 @@\n                             </td>\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n-            <div class=\"navigation d-flex justify-content-centre\"> \n-            \n-            \n+            <div class=\"navigation d-flex justify-content-centre\">            <div class=\"navigation d-flex justify-content-center\">\n             </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n"
+                },
+                {
+                    "date": 1750773470054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,10 @@\n                             </td>\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n-            <div class=\"navigation d-flex justify-content-centre\">            <div class=\"navigation d-flex justify-content-center\">\n+           <div class=\"navigation d-flex justify-content-center\">\n+           {{}}\n             </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n"
+                },
+                {
+                    "date": 1750773476436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n-           {{}}\n+           {{ knp_pagination_render(recipes)}\n             </div>\n                     {% else %}\n \t\t\t\t\t\t<tr>\n \t\t\t\t\t\t</tr>\n"
+                },
+                {
+                    "date": 1750773487801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,12 +48,12 @@\n \t\t\t\t\t\t</tr>\n                         </tbody>\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n-           {{ knp_pagination_render(recipes)}\n+           {{ knp_pagination_render(recipes)}}\n+\n             </div>\n                     {% else %}\n-\t\t\t\t\t\t<tr>\n-\t\t\t\t\t\t</tr>\n+\t\t\t\t\t\t<h4></h4>\n \t\t\t\t\t{% endfor %}\n \t\t\t\t\n \n"
+                },
+                {
+                    "date": 1750773496247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,8 @@\n            {{ knp_pagination_render(recipes)}}\n \n             </div>\n                     {% else %}\n-\t\t\t\t\t\t<h4></h4>\n+\t\t\t\t\t\t<h4>Il n'y a ps de recttes </h4>\n \t\t\t\t\t{% endfor %}\n \t\t\t\t\n \n"
+                },
+                {
+                    "date": 1750773505398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,8 @@\n            {{ knp_pagination_render(recipes)}}\n \n             </div>\n                     {% else %}\n-\t\t\t\t\t\t<h4>Il n'y a ps de recttes </h4>\n-\t\t\t\t\t{% endfor %}\n+\t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n+\t\t\t\t\t{% endifr %}\n \t\t\t\t\n \n"
+                },
+                {
+                    "date": 1750773512423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,9 @@\n                             <td>\n                             TODO\n                             </td>\n \t\t\t\t\t\t</tr>\n+                        \n                         </tbody>\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n"
+                },
+                {
+                    "date": 1750773519820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,16 +45,15 @@\n                             <td>\n                             TODO\n                             </td>\n \t\t\t\t\t\t</tr>\n-                        \n+                        {% endfor %}\n                         </tbody>\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n \n             </div>\n                     {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n-\t\t\t\t\t{% endifr %}\n-\t\t\t\t\n+\t\t\t\t\t{% endifr %}\t\t\t\t\n \n"
+                },
+                {
+                    "date": 1750773526526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,6 +54,7 @@\n \n             </div>\n                     {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n-\t\t\t\t\t{% endifr %}\t\t\t\t\n+\t\t\t\t\t{% endif %}\n \n+                                        \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750773535763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,6 +55,6 @@\n             </div>\n                     {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n \t\t\t\t\t{% endif %}\n-\n-                                        \n\\ No newline at end of file\n+</div>\n+end\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750773620510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t<th>#</th>\n+\t\t\t\t\t\t<th></th>\n \t\t\t\t\t\t<th>Nom</th>\n \t\t\t\t\t\t<th>Description</th>\n \t\t\t\t\t\t<th>Créée le</th>\n \t\t\t\t\t\t<th>Favori</th>\n@@ -56,5 +56,5 @@\n                     {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n \t\t\t\t\t{% endif %}\n </div>\n-end\n\\ No newline at end of file\n+{% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750773630728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t<th></th>\n+\t\t\t\t\t\t<th scope></th>\n \t\t\t\t\t\t<th>Nom</th>\n \t\t\t\t\t\t<th>Description</th>\n \t\t\t\t\t\t<th>Créée le</th>\n \t\t\t\t\t\t<th>Favori</th>\n"
+                },
+                {
+                    "date": 1750773635904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t<th scope></th>\n+\t\t\t\t\t\t<th scope=\"\"></th>\n \t\t\t\t\t\t<th>Nom</th>\n \t\t\t\t\t\t<th>Description</th>\n \t\t\t\t\t\t<th>Créée le</th>\n \t\t\t\t\t\t<th>Favori</th>\n"
+                },
+                {
+                    "date": 1750773642148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t<th scope=\"\"></th>\n+\t\t\t\t\t\t<th scope=\"col\"></th>\n \t\t\t\t\t\t<th>Nom</th>\n \t\t\t\t\t\t<th>Description</th>\n \t\t\t\t\t\t<th>Créée le</th>\n \t\t\t\t\t\t<th>Favori</th>\n"
+                },
+                {
+                    "date": 1750773649258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t<th scope=\"col\"></th>\n+\t\t\t\t\t\t<th scope=\"col\">#</th>\n \t\t\t\t\t\t<th>Nom</th>\n \t\t\t\t\t\t<th>Description</th>\n \t\t\t\t\t\t<th>Créée le</th>\n \t\t\t\t\t\t<th>Favori</th>\n"
+                },
+                {
+                    "date": 1750773655864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n \t\t\t\t\t\t<th scope=\"col\">#</th>\n-\t\t\t\t\t\t<th>Nom</th>\n+\t\t\t\t\t\t<thscope=\"col\">Nom</th>\n \t\t\t\t\t\t<th>Description</th>\n \t\t\t\t\t\t<th>Créée le</th>\n \t\t\t\t\t\t<th>Favori</th>\n \t\t\t\t\t\t<th>Temps</th>\n"
+                },
+                {
+                    "date": 1750773662569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,18 @@\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n \t\t\t\t\t\t<th scope=\"col\">#</th>\n-\t\t\t\t\t\t<thscope=\"col\">Nom</th>\n-\t\t\t\t\t\t<th>Description</th>\n-\t\t\t\t\t\t<th>Créée le</th>\n-\t\t\t\t\t\t<th>Favori</th>\n-\t\t\t\t\t\t<th>Temps</th>\n-\t\t\t\t\t\t<th>Personnes</th>\n-\t\t\t\t\t\t<th>Difficulté</th>\n-\t\t\t\t\t\t<th>Prix</th>\n-\t\t\t\t\t\t<th>Modifiée le</th>\n-\t\t\t\t\t\t<th>Actions</th>\n+\t\t\t\t\t\t<th scope=\"col\">Nom</th>\n+\t\t\t\t\t\t<th scope=\"col\">Description</th>\n+\t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n+\t\t\t\t\t\t<th scope=\"col\">Favori</th>\n+\t\t\t\t\t\t<th scope=\"col\">Temps</th>\n+\t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n+\t\t\t\t\t\t<th scope=\"col\">Difficulté</th>\n+\t\t\t\t\t\t<th scope=\"col\">Prix</th>\n+\t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n+\t\t\t\t\t\t<th scope=\"col\">Actions</th>\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n"
+                },
+                {
+                    "date": 1750773689294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,8 @@\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"table-primary\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n-\t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.nbPeople ?? '-' }}</td>\n"
+                },
+                {
+                    "date": 1750773709937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"table-primary\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n+\t\t\t\t\t\t\t{# <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td> #}\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.nbPeople ?? '-' }}</td>\n"
+                },
+                {
+                    "date": 1750773723686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,14 +32,14 @@\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t{# <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td> #}\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n-\t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n+\t\t\t\t\t\t\t{# <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td> #}\n \t\t\t\t\t\t\t<td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n-\t\t\t\t\t\t\t<td>{{ recipe.nbPeople ?? '-' }}</td>\n+\t\t\t\t\t\t\t{# <td>{{ recipe.nbPeople ?? '-' }}</td> #}\n \t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n-\t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n+\t\t\t\t\t\t\t{# <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td> #}\n \t\t\t\t\t\t\t<td>\n                             TODO\n \t\t\t\t\t\t\t</td>\n                             <td>\n"
+                },
+                {
+                    "date": 1750773741545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,11 +20,11 @@\n \t\t\t\t\t\t<th scope=\"col\">Favori</th>\n \t\t\t\t\t\t<th scope=\"col\">Temps</th>\n \t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n \t\t\t\t\t\t<th scope=\"col\">Difficulté</th>\n-\t\t\t\t\t\t<th scope=\"col\">Prix</th>\n-\t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n-\t\t\t\t\t\t<th scope=\"col\">Actions</th>\n+\t\t\t\t\t\t{# <th scope=\"col\">Prix</th> #}\n+\t\t\t\t\t\t{# <th scope=\"col\">Modifiée le</th> #}\n+\t\t\t\t\t\t{# <th scope=\"col\">Actions</th> #}\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n"
+                },
+                {
+                    "date": 1750773748680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n \t\t\t\t\t\t<th scope=\"col\">Favori</th>\n \t\t\t\t\t\t<th scope=\"col\">Temps</th>\n \t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n \t\t\t\t\t\t<th scope=\"col\">Difficulté</th>\n-\t\t\t\t\t\t{# <th scope=\"col\">Prix</th> #}\n-\t\t\t\t\t\t{# <th scope=\"col\">Modifiée le</th> #}\n+\t\t\t\t\t\t<th scope=\"col\">Prix</th>\n+\t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Actions</th> #}\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n"
+                },
+                {
+                    "date": 1750773755110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n \t\t\t\t\t\t<th scope=\"col\">Favori</th>\n \t\t\t\t\t\t<th scope=\"col\">Temps</th>\n \t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n-\t\t\t\t\t\t<th scope=\"col\">Difficulté</th>\n+\t\t\t\t\t\t{# <th scope=\"col\">Difficulté</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Prix</th>\n \t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Actions</th> #}\n \t\t\t\t\t</tr>\n"
+                },
+                {
+                    "date": 1750773762907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t<th scope=\"col\">#</th>\n+\t\t\t\t\t\t{# <th scope=\"col\">#</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n \t\t\t\t\t\t<th scope=\"col\">Description</th>\n \t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n \t\t\t\t\t\t<th scope=\"col\">Favori</th>\n"
+                },
+                {
+                    "date": 1750773771467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n-\t\t\t\t\t\t{# <th scope=\"col\">#</th> #}\n+\t\t\t\t\t\t<th scope=\"col\">#</th>\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n-\t\t\t\t\t\t<th scope=\"col\">Description</th>\n+\t\t\t\t\t\t{# <th scope=\"col\">Description</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n \t\t\t\t\t\t<th scope=\"col\">Favori</th>\n \t\t\t\t\t\t<th scope=\"col\">Temps</th>\n \t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n"
+                },
+                {
+                    "date": 1750773778427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \t\t\t\t\t\t<th scope=\"col\">#</th>\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Description</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n-\t\t\t\t\t\t<th scope=\"col\">Favori</th>\n+\t\t\t\t\t\t{# <th scope=\"col\">Favori</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Temps</th>\n \t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Difficulté</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Prix</th>\n"
+                },
+                {
+                    "date": 1750773786214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Description</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Favori</th> #}\n-\t\t\t\t\t\t<th scope=\"col\">Temps</th>\n-\t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n+\t\t\t\t\t\t{# <th scope=\"col\">Temps</th> #}\n+\t\t\t\t\t\t{# <th scope=\"col\">Personnes</th> #}\n \t\t\t\t\t\t{# <th scope=\"col\">Difficulté</th> #}\n \t\t\t\t\t\t<th scope=\"col\">Prix</th>\n \t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n \t\t\t\t\t\t{# <th scope=\"col\">Actions</th> #}\n"
+                },
+                {
+                    "date": 1750773800248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,17 +14,17 @@\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n \t\t\t\t\t\t<th scope=\"col\">#</th>\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n-\t\t\t\t\t\t{# <th scope=\"col\">Description</th> #}\n+\t\t\t\t\t\t<th scope=\"col\">Description</th>\n \t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n-\t\t\t\t\t\t{# <th scope=\"col\">Favori</th> #}\n-\t\t\t\t\t\t{# <th scope=\"col\">Temps</th> #}\n-\t\t\t\t\t\t{# <th scope=\"col\">Personnes</th> #}\n-\t\t\t\t\t\t{# <th scope=\"col\">Difficulté</th> #}\n+\t\t\t\t\t\t<th scope=\"col\">Favori</th>\n+\t\t\t\t\t\t<th scope=\"col\">Temps</th>\n+\t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n+\t\t\t\t\t\t<th scope=\"col\">Difficulté</th>\n \t\t\t\t\t\t<th scope=\"col\">Prix</th>\n \t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n-\t\t\t\t\t\t{# <th scope=\"col\">Actions</th> #}\n+\t\t\t\t\t\t<th scope=\"col\">Actions</th>\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n \t\t\t\t\t{% for recipe in recipes %}\n"
+                },
+                {
+                    "date": 1750773842629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,16 +30,16 @@\n \t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"table-primary\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n-\t\t\t\t\t\t\t{# <td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td> #}\n+\t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n-\t\t\t\t\t\t\t{# <td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td> #}\n+\t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n-\t\t\t\t\t\t\t{# <td>{{ recipe.nbPeople ?? '-' }}</td> #}\n+\t\t\t\t\t\t\t<td>{{ recipe.nbPeople ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.price is not null ? recipe.price ~ ' €' : '-' }}</td>\n-\t\t\t\t\t\t\t{# <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td> #}\n+\t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n \t\t\t\t\t\t\t<td>\n                             TODO\n \t\t\t\t\t\t\t</td>\n                             <td>\n"
+                },
+                {
+                    "date": 1750774105316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{% if not recipes.items is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n+\t\t\t\t<h4>Il y a {{ recpi.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-striped\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750774143980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n \t<div class=\"container mt-4\">\n \t\t{% if not recipes.items is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>Il y a {{ recpi.getTotalItemCount() }} recettes</h4>\n+\t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n-\t\t\t<table class=\"table table-striped\">\n+\t\t\t<table class=\"table table-hover \">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n \t\t\t\t\t\t<th scope=\"col\">#</th>\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n"
+                },
+                {
+                    "date": 1750774212014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,14 +4,14 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if not recipes.items is same as([]) %}\n+\t\t{% if not recipes.item is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n-\t\t\t<table class=\"table table-hover \">\n+\t\t\t<table class=\"table table-hover mt-4\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n \t\t\t\t\t\t<th scope=\"col\">#</th>\n \t\t\t\t\t\t<th scope=\"col\">Nom</th>\n"
+                },
+                {
+                    "date": 1750774218404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if not recipes.item is same as([]) %}\n+\t\t{% if not recipe.item is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750774224234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if not recipe.item is same as([]) %}\n+\t\t{% if not recipes.items is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750774229633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if not recipes.items is same as([]) %}\n+\t\t{# {% if not recipes.items is same as([]) %} #}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750774246305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n \n             </div>\n-                    {% else %}\n+                    {# {% else %} #}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n-\t\t\t\t\t{% endif %}\n+\t\t\t\t\t{# {% endif %} #}\n\\ No newline at end of file\n </div>\n-{% endblock %}\n+{# {% endblock %} #}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750774253392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,5 +56,5 @@\n                     {# {% else %} #}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n \t\t\t\t\t{# {% endif %} #}\n </div>\n-{# {% endblock %} #}\n\\ No newline at end of file\n+{% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750774261764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{# {% if not recipes.items is same as([]) %} #}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n+\t\t\t\t{# <h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4> #}\n \t\t\t</div>\n \t\t\t<table class=\"table table-hover mt-4\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750774269725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{# {% if not recipes.items is same as([]) %} #}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t{# <h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4> #}\n+\t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-hover mt-4\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n@@ -52,9 +52,9 @@\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n \n             </div>\n-                    {# {% else %} #}\n+                    {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n-\t\t\t\t\t{# {% endif %} #}\n+\t\t\t\t\t{% endif %}\n </div>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750774529493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n \n             </div>\n-                    {% else %}\n+                    {# {% else %} #}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n-\t\t\t\t\t{% endif %}\n+\t\t\t\t\t{# {% endif %} #}\n </div>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750774548036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \t\t\t\t\t\t<th scope=\"col\">Actions</th>\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n-\t\t\t\t\t{% for recipe in recipes %}\n+\t\t\t\t\t{# {% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"table-primary\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n@@ -51,9 +51,9 @@\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n \n-            </div>\n+            </div> #}\n                     {# {% else %} #}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n \t\t\t\t\t{# {% endif %} #}\n </div>\n"
+                },
+                {
+                    "date": 1750774557911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \t\t\t\t\t\t<th scope=\"col\">Actions</th>\n \t\t\t\t\t</tr>\n \t\t\t\t</thead>\n \t\t\t\t<tbody>\n-\t\t\t\t\t{# {% for recipe in recipes %}\n+\t\t\t\t\t{% for recipe in recipes %}\n \t\t\t\t\t\t<tr class=\"table-primary\">\n                         <th scope=\"row\">{{ recipe.id }}</th>\n \t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n \t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n@@ -51,9 +51,9 @@\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n            {{ knp_pagination_render(recipes)}}\n \n-            </div> #}\n+            </div>\n                     {# {% else %} #}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n \t\t\t\t\t{# {% endif %} #}\n </div>\n"
+                },
+                {
+                    "date": 1750774598934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{# {% if not recipes.items is same as([]) %} #}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>Il y a {{ recipes.getTotalItemCount() }} recettes</h4>\n+\t\t\t\t<h4>Il y a {{ recipes }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-hover mt-4\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750774608111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{# {% if not recipes.items is same as([]) %} #}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>Il y a {{ recipes }} recettes</h4>\n+\t\t\t\t<h4>Il y a {{ recipes| }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-hover mt-4\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n"
+                },
+                {
+                    "date": 1750774640991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t<div class=\"container mt-4\">\n \t\t{# {% if not recipes.items is same as([]) %} #}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n-\t\t\t\t<h4>Il y a {{ recipes| }} recettes</h4>\n+\t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n \t\t\t</div>\n \t\t\t<table class=\"table table-hover mt-4\">\n \t\t\t\t<thead>\n \t\t\t\t\t<tr>\n@@ -49,9 +49,9 @@\n                         {% endfor %}\n                         </tbody>\n \t\t\t</table>\n            <div class=\"navigation d-flex justify-content-center\">\n-           {{ knp_pagination_render(recipes)}}\n+           {# {{ knp_pagination_render(recipes)}} #}\n \n             </div>\n                     {# {% else %} #}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n"
+                },
+                {
+                    "date": 1750774660948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{# {% if not recipes.items is same as([]) %} #}\n+\t\t{% if not recipes.items is same as([]) %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750774684917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n            <div class=\"navigation d-flex justify-content-center\">\n            {# {{ knp_pagination_render(recipes)}} #}\n \n             </div>\n-                    {# {% else %} #}\n+                    {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n \t\t\t\t\t{# {% endif %} #}\n </div>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750774695435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if not recipes.items is same as([]) %}\n+\t\t{% if not recipes|length %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n \t\t\t</div>\n@@ -54,7 +54,7 @@\n \n             </div>\n                     {% else %}\n \t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n-\t\t\t\t\t{# {% endif %} #}\n+\t\t\t\t\t{% endif %}\n </div>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750774700579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if not recipes|length %}\n+\t\t{% if  recipes|length %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750774706426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if  recipes|length  %}\n+\t\t{% if  recipes|length > %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n \t\t\t</div>\n"
+                }
+            ],
+            "date": 1750772623486,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Recipe index{% endblock %}\n\n{% block body %}\n    <h1>Recipe index</h1>\n\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <th>Id</th>\n                <th>Name</th>\n                <th>Description</th>\n                <th>CreatedAt</th>\n                <th>IsFavorite</th>\n                <th>Time</th>\n                <th>NbPeople</th>\n                <th>Difficulty</th>\n                <th>Price</th>\n                <th>Updated_at</th>\n                <th>actions</th>\n            </tr>\n        </thead>\n        <tbody>\n\n            <tr>\n                <td>{{ recipe.id }}</td>\n                <td>{{ recipe.name }}</td>\n                <td>{{ recipe.description }}</td>\n                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>\n                <td>{{ recipe.isFavorite ? 'Yes' : 'No' }}</td>\n                <td>{{ recipe.time ? recipe.time|date('H:i:s') : '' }}</td>\n                <td>{{ recipe.nbPeople }}</td>\n                <td>{{ recipe.difficulty }}</td>\n                <td>{{ recipe.price ? 'Yes' : 'No' }}</td>\n                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>\n                <td>\n                    <a href=\"{{ path('app_recipe_show', {'id': recipe.id}) }}\">show</a>\n                    <a href=\"{{ path('app_recipe_edit', {'id': recipe.id}) }}\">edit</a>\n                </td>\n            </tr>\n        {% else %}\n            <tr>\n                <td colspan=\"11\">no records found</td>\n            </tr>\n        {% endfor %}\n        </tbody>\n    </table>\n\n    <a href=\"{{ path('app_recipe_new') }}\">Create new</a>\n{% endblock %}\n"
+        }
+    ]
+}
