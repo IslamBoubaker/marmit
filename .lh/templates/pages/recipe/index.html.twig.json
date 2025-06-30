@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 99,
+            "activePatchIndex": 100,
             "patches": [
                 {
                     "date": 1750772623486,
@@ -404,6 +404,10 @@
                 {
                     "date": 1750774706426,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% endblock %}\n \n {% block body %}\n \t<div class=\"container mt-4\">\n-\t\t{% if  recipes|length  %}\n+\t\t{% if  recipes|length > %}\n \t\t\t<h1>Mes recettes</h1>\n \t\t\t<div class=\"count mt-4\">\n \t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750920681671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,60 @@\n+{% extends 'base.html.twig' %}\n+\n+{% block title %}Liste des recettes\n+{% endblock %}\n+\n+{% block body %}\n+\t<div class=\"container mt-4\">\n+\t\t{% if  recipes|length > 0 %}\n+\t\t\t<h1>Mes recettes</h1>\n+\t\t\t<div class=\"count mt-4\">\n+\t\t\t\t<h4>Il y a {{ recipes|length }} recettes</h4>\n+\t\t\t</div>\n+\t\t\t<table class=\"table table-hover mt-4\">\n+\t\t\t\t<thead>\n+\t\t\t\t\t<tr>\n+\t\t\t\t\t\t<th scope=\"col\">#</th>\n+\t\t\t\t\t\t<th scope=\"col\">Nom</th>\n+\t\t\t\t\t\t<th scope=\"col\">Description</th>\n+\t\t\t\t\t\t<th scope=\"col\">Créée le</th>\n+\t\t\t\t\t\t<th scope=\"col\">Favori</th>\n+\t\t\t\t\t\t<th scope=\"col\">Temps</th>\n+\t\t\t\t\t\t<th scope=\"col\">Personnes</th>\n+\t\t\t\t\t\t<th scope=\"col\">Difficulté</th>\n+\t\t\t\t\t\t<th scope=\"col\">Prix</th>\n+\t\t\t\t\t\t<th scope=\"col\">Modifiée le</th>\n+\t\t\t\t\t\t<th scope=\"col\">Actions</th>\n+\t\t\t\t\t</tr>\n+\t\t\t\t</thead>\n+\t\t\t\t<tbody>\n+\t\t\t\t\t{% for recipe in recipes %}\n+\t\t\t\t\t\t<tr class=\"table-primary\">\n+                        <th scope=\"row\">{{ recipe.id }}</th>\n+\t\t\t\t\t\t\t<td>{{ recipe.name }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.description|length > 50 ? recipe.description|slice(0, 50) ~ '...' : recipe.description }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d') : '' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.isFavorite ? 'Oui' : 'Non' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.time ? recipe.time ~ ' min' : '' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.nbPeople ?? '-' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.difficulty ?? '-' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.price is not null ? \"\" recipe.price ~ ' €' : '-' }}</td>\n+\t\t\t\t\t\t\t<td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d') : '' }}</td>\n+\t\t\t\t\t\t\t<td>\n+                            TODO\n+\t\t\t\t\t\t\t</td>\n+                            <td>\n+                            TODO\n+                            </td>\n+\t\t\t\t\t\t</tr>\n+                        {% endfor %}\n+                        </tbody>\n+\t\t\t</table>\n+           <div class=\"navigation d-flex justify-content-center\">\n+           {# {{ knp_pagination_render(recipes)}} #}\n+\n+            </div>\n+                    {% else %}\n+\t\t\t\t\t\t<h4>Il n'y a pas de recettes</h4>\n+\t\t\t\t\t{% endif %}\n+</div>\n+{% endblock %}\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1750772623486,

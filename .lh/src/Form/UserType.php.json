@@ -1,0 +1,78 @@
+{
+    "sourceFile": "src/Form/UserType.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1751011312320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751011339335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,24 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n \n-            ->add('name')\n+            ->add('name' TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'50'\n+                ],\n+                'label'=>'Nom',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Length(['min'=> 2,'max'=>50])\n+                ]\n+                ])\n+)\n             ->add('pseudo')\n \n         ;\n     }\n"
+                },
+                {
+                    "date": 1751011346775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Form;\n \n use App\\Entity\\User;\n use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n \n class UserType extends AbstractType\n@@ -27,9 +28,9 @@\n                     new Assert\\NotBlank(),\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n-)\n+\n             ->add('pseudo')\n \n         ;\n     }\n"
+                },
+                {
+                    "date": 1751011354051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Form;\n \n use App\\Entity\\User;\n+use Doctrine\\DBAL\\Types\\TextType;\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n"
+                },
+                {
+                    "date": 1751011361842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n \n-            ->add('name' TextType::class,[\n+            ->add('name', TextType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'50'\n"
+                },
+                {
+                    "date": 1751011370275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n \n+\n class UserType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n"
+                },
+                {
+                    "date": 1751011388761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,24 @@\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n \n-            ->add('pseudo')\n+          ->add('pseudo', TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'50'\n+                ],\n+                'label'=>'Nom',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\Length(['min'=> 2,'max'=>50])\n+                ]\n+                ])\n \n+\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1751011401817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Symfony\\Component\\Validator\\Constraints as Assert;\n \n \n class UserType extends AbstractType\n {\n"
+                },
+                {
+                    "date": 1751011480721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n namespace App\\Form;\n \n use App\\Entity\\User;\n-use Doctrine\\DBAL\\Types\\TextType;\n+\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n"
+                },
+                {
+                    "date": 1751011527176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n \n namespace App\\Form;\n \n use App\\Entity\\User;\n-\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n@@ -46,10 +45,10 @@\n                 'constraints'=>[\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n+            \n \n-\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1751011534741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                 'constraints'=>[\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n-            \n+            ->add()\n \n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1751011541457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                 'constraints'=>[\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n-            ->add()\n+            ->add('submit')\n \n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1751011546836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                 'constraints'=>[\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n-            ->add('submit')\n+            ->add('submit', Submit)\n \n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1751011551955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                 'constraints'=>[\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n-            ->add('submit', Submit)\n+            ->add('submit', SubmitType::class)\n \n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1751011557200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,11 @@\n                 'constraints'=>[\n                     new Assert\\Length(['min'=> 2,'max'=>50])\n                 ]\n                 ])\n-            ->add('submit', SubmitType::class,[])\n+            ->add('submit', SubmitType::class,[\n+                ''\n+            ])\n \n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1751013963932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,67 @@\n+<?php\n+\n+namespace App\\Form;\n+\n+use App\\Entity\\User;\n+use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n+use Symfony\\Component\\Form\\FormBuilderInterface;\n+use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Symfony\\Component\\Validator\\Constraints as Assert;\n+\n+\n+class UserType extends AbstractType\n+{\n+    public function buildForm(FormBuilderInterface $builder, array $options): void\n+    {\n+        $builder\n+\n+            ->add('name', TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'50'\n+                ],\n+                'label'=>'Nom',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Length(['min'=> 2,'max'=>50])\n+                ]\n+                ])\n+\n+          ->add('pseudo', TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'50'\n+                ],\n+                'label'=>'Nom',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\Length(['min'=> 2,'max'=>50])\n+                ]\n+                ])\n+            ->add('submit', SubmitType::class,[\n+                'attr'=>[\n+                    'class'=>'btn btn-primary mt-4'\n+                ],\n+                'label'=>'Enregistrer'\n+            ])\n+            \n+\n+        ;\n+    }\n+\n+    public function configureOptions(OptionsResolver $resolver): void\n+    {\n+        $resolver->setDefaults([\n+            'data_class' => User::class,\n+        ]);\n+    }\n+}\n"
+                }
+            ],
+            "date": 1751011312320,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Form;\n\nuse App\\Entity\\User;\nuse Symfony\\Component\\Form\\AbstractType;\nuse Symfony\\Component\\Form\\FormBuilderInterface;\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\n\nclass UserType extends AbstractType\n{\n    public function buildForm(FormBuilderInterface $builder, array $options): void\n    {\n        $builder\n\n            ->add('name')\n            ->add('pseudo')\n\n        ;\n    }\n\n    public function configureOptions(OptionsResolver $resolver): void\n    {\n        $resolver->setDefaults([\n            'data_class' => User::class,\n        ]);\n    }\n}\n"
+        }
+    ]
+}

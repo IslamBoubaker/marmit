@@ -1,11 +1,72 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New Recipe{% endblock %}
-
 {% block body %}
-    <h1>Create new Recipe</h1>
+ <div class="container">
+    <h1 class="mt-4">Create new Recipe</h1>
 
-    {{ include('recipe/_form.html.twig') }}
+        
+      		{{ form_start(form) }}
+		<div class="form-group">
+			{{ form_label(form.name) }}
+			{{ form_widget(form.name) }}
+		<div class="form-error">
+            {{ form_errors(form.name) }}
+        </div>
+        </div>
+          <div class="form-group">
+			{{ form_label(form.nbPeople) }}
+			{{ form_widget(form.nbPeople) }}
+		<div class="form-error">
+            {{ form_errors(form.nbPeople) }}
+			</div>
+			</div>
+               <div class="form-group">
+			{{ form_label(form.time) }}
+			{{ form_widget(form.time) }}
+		<div class="form-error">
+            {{ form_errors(form.time) }}
+			</div>
+			</div>
+              <div class="form-group">
+            	{{ form_label(form.difficulty) }}
+			{{ form_widget(form.difficulty) }}
+		<div class="form-error">
+            {{ form_errors(form.difficulty) }}
+			</div>
+			</div>
+              <div class="form-group">
+            	{{ form_label(form.description) }}
+			{{ form_widget(form.description) }}
+		<div class="form-error">
+            {{ form_errors(form.description) }}
+			</div>
+			</div>
+              <div class="form-group">
+            	{{ form_label(form.price) }}
+			{{ form_widget(form.price) }}
+		<div class="form-error">
+            {{ form_errors(form.price) }}
+			</div>
+			</div>
+              <div class="form-group">
+            	{{ form_label(form.isFavorite) }}
+			{{ form_widget(form.isFavorite) }}
+		<div class="form-error">
+            {{ form_errors(form.isFavorite) }}
+			</div>
+		</div>
 
-    <a href="{{ path('app_recipe_index') }}">back to list</a>
-{% endblock %}
+		{{ form_row(form.ingredients) }}
+		<br>
+<div id="ingredients-wrapper">
+    {% for field in form.ingredients %}
+        <div style="min-width: 10%">
+            {{ form_label(field) }}
+            {{ form_widget(field) }}
+        </div>
+    {% endfor %}
+</div>
+
+{{ form_end(form) }}
+
+        {% endblock %}
+

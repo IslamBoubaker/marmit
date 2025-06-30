@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/Form/IngredientsType.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1751023126677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751023140305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,16 @@\n use App\\Entity\\Recipe;\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use App\\Entity\\Ingredient;\n+use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\n+use Symfony\\Component\\Form\\FormBuilderInterface;\n+use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Symfony\\Component\\Validator\\Constraints as Assert;\n \n class IngredientsType extends AbstractType\n {\n \n"
+                },
+                {
+                    "date": 1751023146555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\n \n-use Symfony\\Component\\OptionsResolver\\OptionsResolver;use Symfony\\Component\\Validator\\Constraints as Assert;\n+use Symfony\\Component\\OptionsResolver\\OptionsResolveruse Symfony\\Component\\Validator\\Constraints as Assert;\n \n class IngredientsType extends AbstractType\n {\n \n"
+                }
+            ],
+            "date": 1751023126677,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Form;\n\nuse App\\Entity\\Recipe;\nuse Symfony\\Component\\Form\\AbstractType;\nuse Symfony\\Component\\Form\\FormBuilderInterface;\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\n\nclass IngredientsType extends AbstractType\n{\n\n    public function buildForm(FormBuilderInterface $builder, array $options): void\n    {\n        $builder\n            ->add('name', TextType::class, [\n                'label' => 'Nom de l\\'ingrédient',\n                'attr' => [\n                    'class' => 'form-control',\n                    'minlength' => 2,\n                    'maxlength' => 50,\n                ],\n                'label_attr' => [\n                    'class' => 'form-label mt-4',\n                ],\n                'constraints' => [\n                    new Assert\\NotBlank(),\n                    new Assert\\Length(['min' => 2, 'max' => 50]),\n                ]\n            ])\n            ->add('price', MoneyType::class, [\n                'label' => 'Prix',\n                'attr' => [\n                    'class' => 'form-control',\n                ],\n                'label_attr' => [\n                    'class' => 'form-label mt-4',\n                ],\n                'constraints' => [\n                    new Assert\\Positive(),\n                    new Assert\\LessThan(200),\n                ]\n            ])\n            ->add('submit', SubmitType::class, [\n                'label' => 'Créer mon ingrédient',\n                'attr' => [\n                    'class' => 'btn btn-primary mt-4',\n                ]\n            ]);\n    }\n\n}\n"
+        }
+    ]
+}

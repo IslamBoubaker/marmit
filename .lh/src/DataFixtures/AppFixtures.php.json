@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 21,
             "patches": [
                 {
                     "date": 1750768382059,
@@ -88,6 +88,10 @@
                 {
                     "date": 1750768633993,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         for ($i=1; $i < 50 ; $i++) { \n             $ingredient = new Ingredient();\n             $ingredient->setName($this->faker->word());\n             $ingredient->setPrice(mt_rand(0,100));\n-            $ingredients\n+            $ingredients[] = $ingredient;\n             $manager->persist($ingredient);\n         }\n \n         for ($j=1; $j < 25 ; $j++) { \n"
+                },
+                {
+                    "date": 1750938073654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,59 @@\n+<?php\n+\n+namespace App\\DataFixtures;\n+\n+use Doctrine\\Bundle\\FixturesBundle\\Fixture;\n+use App\\Entity\\Ingredient;\n+use App\\Entity\\Recipe;\n+use Doctrine\\Persistence\\ObjectManager;\n+use Faker\\Factory;\n+use Faker\\Generator;\n+use phpDocumentor\\Reflection\\DocBlock\\Tags\\Generic;\n+\n+class AppFixtures extends Fixture\n+{\n+\n+\n+    private Generator $faker;\n+    public function __construct() \n+    {\n+        $this->faker = Factory::create(\"fr_FR\");\n+    }\n+\n+    public function load(ObjectManager $manager): void\n+    {\n+        for ($i=1; $i < 50 ; $i++) { \n+            $ingredient = new Ingredient();\n+            $ingredient->setName($this->faker->word());\n+            $ingredient->setPrice(mt_rand(0,100));\n+            $ingredients[] = $ingredient;\n+            $manager->persist($ingredient);\n+        }\n+\n+        for ($j=1; $j < 25 ; $j++) { \n+\n+            $recipe = new Recipe();\n+            $recipe-> setName($this->faker->word())\n+                    ->setTime(mt_rand(1,1440))\n+                    ->setNbPeople(mt_rand(0,1) == 1? mt_rand(1,50):null)\n+                    ->setDifficulty(mt_rand(0,1) == 1? mt_rand(1,5):null)\n+                    ->setDescription($this->faker->text(300))\n+                    ->setPrice(mt_rand(0,1) == 1? mt_rand(1,1000):null)\n+                    ->setIsFavorite(mt_rand(0,1) ==1? true:false);\n+\n+for ($k=0; $k < mt_rand(5,15); $k++) {\n+    $recipe->addIngredient($ingredients[mt_rand(0,count($ingredients)-1)]);\n+\n+            $manager->persist($recipe);\n+        }\n+\n+        $manager->flush();\n+    }\n+    }\n+\n+}\n+\n+\n+// USER \n+\n+for ($i=0; $i)\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1750768382059,

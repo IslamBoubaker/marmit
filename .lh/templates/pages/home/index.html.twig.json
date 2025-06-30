@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1750747593452,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751286010911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n             garder en privées.</p>\n         <hr class=\"my-4\">\n         <p>Pour commencer, rendez-vous sur la page d'inscription pour\n             utiliser l'application.</p>\n-        <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Inscription</a>\n+        <a class=\"btn btn-primary btn-lg\" href=\"app_registration\" role=\"button\">Inscription</a>\n     </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1751286062860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n             garder en privées.</p>\n         <hr class=\"my-4\">\n         <p>Pour commencer, rendez-vous sur la page d'inscription pour\n             utiliser l'application.</p>\n-        <a class=\"btn btn-primary btn-lg\" href=\"app_registration\" role=\"button\">Inscription</a>\n+        <a class=\"btn btn-primary btn-lg\" href=\"/inscription\" role=\"button\">Inscription</a>\n     </div>\n {% endblock %}\n"
                 }
             ],
             "date": 1750747593452,

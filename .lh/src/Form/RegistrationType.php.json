@@ -1,0 +1,218 @@
+{
+    "sourceFile": "src/Form/RegistrationType.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 50,
+            "patches": [
+                {
+                    "date": 1750944952517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750944967000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             ->add('email')\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n-            ->add('createdAt')\n+            ->add('submit')\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n@@ -25,5 +25,6 @@\n         $resolver->setDefaults([\n             'data_class' => User::class,\n         ]);\n     }\n+    $bui\n }\n"
+                },
+                {
+                    "date": 1750944989709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,7 @@\n         $resolver->setDefaults([\n             'data_class' => User::class,\n         ]);\n     }\n-    $bui\n+   \n+\n }\n"
+                },
+                {
+                    "date": 1750944995946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('email')\n+            ->add('email', Email)\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n"
+                },
+                {
+                    "date": 1750945001159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,18 @@\n namespace App\\Form;\n \n use App\\Entity\\User;\n use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n \n class RegistrationType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('email', Email)\n+            ->add('email', EmailType::)\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n"
+                },
+                {
+                    "date": 1750945007908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('email', EmailType::)\n+            ->add('email', EmailType::class,[\n+                \n+            ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n"
+                },
+                {
+                    "date": 1750945018989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n             ->add('email', EmailType::class,[\n-                \n+                'attr'=>\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945027694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,11 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n             ->add('email', EmailType::class,[\n-                'attr'=>\n+                'attr'=>[\n+                    ''\n+                ]\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945032830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     {\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n-                    ''\n+                    'class'=>\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945038817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     {\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n-                    'class'=>\n+                    'class'=>'form-control'\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945044543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,10 @@\n     {\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n-                    'class'=>'form-control'\n+                    'class'=>'form-control',\n+                    \n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945052339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n-                    \n+                    'minlegh'\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945061524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n-                    'minlegh'\n+                    'minlenght'=>\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945067078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,11 @@\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n-                    'minlenght'=>\n-                ]\n+                    'minlenght'=>'2'\n+                \n+                    ]\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945075624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minlenght'=>'2'\n-                \n+                    \n                     ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945081064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,10 @@\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minlenght'=>'2'\n-                    \n-                    ]\n+                    ''\n+                ]\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945086970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minlenght'=>'2'\n-                    ''\n+                    'maxLengh'\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945093607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n-                    'minlenght'=>'2'\n-                    'maxLengh'\n+                    'minLenght'=>'2'\n+                    'maxLenght'=>\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945098735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n         $builder\n             ->add('email', EmailType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n-                    'minLenght'=>'2'\n-                    'maxLenght'=>\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'180'\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945111070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n-                ]\n+                ],<div class=\"\"></div>\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945118175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n-                ],<div class=\"\"></div>\n+                ],\n+                \n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945125391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n                 ],\n-                \n+                'label'=>\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945137468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n                 ],\n-                'label'=>\n+                'label'=>'Adress email'\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945144367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,10 @@\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n                 ],\n-                'label'=>'Adress email'\n+                'label'=>'Adress email',\n+                'label'\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945149945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n-                'label'\n+                'label_attr'\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945161400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,11 @@\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n-                'label_attr'\n+                'label_attr'=>[\n+                    \n+                ]\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945168872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n-                    \n+                    'class'=\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945174583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n-                    'class'=\n+                    'class'=>'form'\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945182012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,11 @@\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n-                    'class'=>'form'\n-                ]\n+                    'class'=>'form-lable'\n+                ],\n+                \n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945187496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n                     'class'=>'form-lable'\n                 ],\n-                \n+                'constraints'\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945194828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,11 @@\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n                     'class'=>'form-lable'\n                 ],\n-                'constraints'\n+                'constraints'=>[\n+                    new \n+                ]\n             ])\n             ->add('password')\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945201209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Webmozart\\Assert\\Assert;\n \n class RegistrationType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n@@ -23,9 +24,9 @@\n                 'label_attr'=>[\n                     'class'=>'form-lable'\n                 ],\n                 'constraints'=>[\n-                    new \n+                    new Assert\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945208688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n                 'label_attr'=>[\n                     'class'=>'form-lable'\n                 ],\n                 'constraints'=>[\n-                    new Assert\n+                    new Assert\\NotBlank()\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945216459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n                 'label_attr'=>[\n                     'class'=>'form-lable'\n                 ],\n                 'constraints'=>[\n-                    new Assert\\NotBlank()\n+                    new Assert\\NotBlank(),\n+                    new Assert\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945223031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n                     'class'=>'form-lable'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n-                    new Assert\n+                    new Assert\\Email()\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945230254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,10 @@\n                     'class'=>'form-lable'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n-                    new Assert\\Email()\n+                    new Assert\\Email(),\n+                    new AS\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945236239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n-                    new AS\n+                    new Assert\\Lenght\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945241377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n-                    new Assert\\Lenght\n+                    new Assert\\Lenght(['min'])\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945248295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n-                    new Assert\\Lenght(['min'])\n+                    new Assert\\Lenght(['min'=> 2])\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945254144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n-                    new Assert\\Lenght(['min'=> 2])\n+                    new Assert\\Lenght(['min'=> 2,'max'])\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945260187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n-                    new Assert\\Lenght(['min'=> 2,'max'])\n+                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n                 ]\n             ])\n             ->add('password')\n             ->add('name')\n"
+                },
+                {
+                    "date": 1750945333664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,23 @@\n                     new Assert\\Email(),\n                     new Assert\\Lenght(['min'=> 2,'max'=>180])\n                 ]\n             ])\n-            ->add('password')\n+            ->add('password' EmailType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'180'\n+                ],\n+                'label'=>'Adress email',\n+                'label_attr'=>[\n+                    'class'=>'form-lable'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Email(),\n+                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n+                ])\n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n         ;\n"
+                },
+                {
+                    "date": 1750945341003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                     new Assert\\Email(),\n                     new Assert\\Lenght(['min'=> 2,'max'=>180])\n                 ]\n             ])\n-            ->add('password' EmailType::class,[\n+            ->add('password', TExtType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n                     'maxLenght'=>'180'\n"
+                },
+                {
+                    "date": 1750945348997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,62 @@\n+<?php\n+\n+namespace App\\Form;\n+\n+use App\\Entity\\User;\n+use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n+use Symfony\\Component\\Form\\FormBuilderInterface;\n+use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Webmozart\\Assert\\Assert;\n+\n+class RegistrationType extends AbstractType\n+{\n+    public function buildForm(FormBuilderInterface $builder, array $options): void\n+    {\n+        $builder\n+            ->add('email', EmailType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'180'\n+                ],\n+                'label'=>'Adress email',\n+                'label_attr'=>[\n+                    'class'=>'form-lable'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Email(),\n+                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n+                ]\n+            ])\n+            ->add('password', TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'180'\n+                ],\n+                'label'=>'Adress email',\n+                'label_attr'=>[\n+                    'class'=>'form-lable'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Email(),\n+                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n+                ])\n+            ->add('name')\n+            ->add('pseudo')\n+            ->add('submit')\n+        ;\n+    }\n+\n+    public function configureOptions(OptionsResolver $resolver): void\n+    {\n+        $resolver->setDefaults([\n+            'data_class' => User::class,\n+        ]);\n+    }\n+   \n+\n+}\n"
+                },
+                {
+                    "date": 1750945361385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,11 +33,11 @@\n             ->add('password', TextType::class,[\n                 'attr'=>[\n                     'class'=>'form-control',\n                     'minLenght'=>'2',\n-                    'maxLenght'=>'180'\n+                    'maxLenght'=>'50'\n                 ],\n-                'label'=>'Adress email',\n+                'label'=>'Nom',\n                 'label_attr'=>[\n                     'class'=>'form-lable'\n                 ],\n                 'constraints'=>[\n@@ -59,66 +59,4 @@\n     }\n    \n \n }\n-<?php\n-\n-namespace App\\Form;\n-\n-use App\\Entity\\User;\n-use Symfony\\Component\\Form\\AbstractType;\n-use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n-use Symfony\\Component\\Form\\FormBuilderInterface;\n-use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n-use Webmozart\\Assert\\Assert;\n-\n-class RegistrationType extends AbstractType\n-{\n-    public function buildForm(FormBuilderInterface $builder, array $options): void\n-    {\n-        $builder\n-            ->add('email', EmailType::class,[\n-                'attr'=>[\n-                    'class'=>'form-control',\n-                    'minLenght'=>'2',\n-                    'maxLenght'=>'180'\n-                ],\n-                'label'=>'Adress email',\n-                'label_attr'=>[\n-                    'class'=>'form-lable'\n-                ],\n-                'constraints'=>[\n-                    new Assert\\NotBlank(),\n-                    new Assert\\Email(),\n-                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n-                ]\n-            ])\n-            ->add('password', TExtType::class,[\n-                'attr'=>[\n-                    'class'=>'form-control',\n-                    'minLenght'=>'2',\n-                    'maxLenght'=>'180'\n-                ],\n-                'label'=>'Adress email',\n-                'label_attr'=>[\n-                    'class'=>'form-lable'\n-                ],\n-                'constraints'=>[\n-                    new Assert\\NotBlank(),\n-                    new Assert\\Email(),\n-                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n-                ])\n-            ->add('name')\n-            ->add('pseudo')\n-            ->add('submit')\n-        ;\n-    }\n-\n-    public function configureOptions(OptionsResolver $resolver): void\n-    {\n-        $resolver->setDefaults([\n-            'data_class' => User::class,\n-        ]);\n-    }\n-   \n-\n-}\n"
+                },
+                {
+                    "date": 1750945367226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n-                    'class'=>'form-lable'\n+                    'class'=>'form-lablel'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n@@ -37,9 +37,9 @@\n                     'maxLenght'=>'50'\n                 ],\n                 'label'=>'Nom',\n                 'label_attr'=>[\n-                    'class'=>'form-lable'\n+                    'class'=>'form-lablel'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n"
+                },
+                {
+                    "date": 1750945377846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                     'maxLenght'=>'180'\n                 ],\n                 'label'=>'Adress email',\n                 'label_attr'=>[\n-                    'class'=>'form-lablel'\n+                    'class'=>'form-label'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Email(),\n@@ -37,13 +37,12 @@\n                     'maxLenght'=>'50'\n                 ],\n                 'label'=>'Nom',\n                 'label_attr'=>[\n-                    'class'=>'form-lablel'\n+                    'class'=>'form-label'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n-                    new Assert\\Email(),\n                     new Assert\\Lenght(['min'=> 2,'max'=>180])\n                 ])\n             ->add('name')\n             ->add('pseudo')\n"
+                },
+                {
+                    "date": 1750945386126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,11 @@\n                     'class'=>'form-label'\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n-                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n+                    new Assert\\Lenght(['min'=> 2,'max'=>50])\n                 ])\n+                \n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n         ;\n"
+                },
+                {
+                    "date": 1750945392411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Lenght(['min'=> 2,'max'=>50])\n-                ])\n-                \n+                ]\n+\n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n         ;\n"
+                },
+                {
+                    "date": 1750945398134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,10 @@\n                 ],\n                 'constraints'=>[\n                     new Assert\\NotBlank(),\n                     new Assert\\Lenght(['min'=> 2,'max'=>50])\n-                ]])\n+                ]\n+                ])\n \n             ->add('name')\n             ->add('pseudo')\n             ->add('submit')\n"
+                },
+                {
+                    "date": 1750945492648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,81 @@\n+<?php\n+\n+namespace App\\Form;\n+\n+use App\\Entity\\User;\n+use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n+use Symfony\\Component\\Form\\FormBuilderInterface;\n+use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Webmozart\\Assert\\Assert;\n+\n+class RegistrationType extends AbstractType\n+{\n+    public function buildForm(FormBuilderInterface $builder, array $options): void\n+    {\n+        $builder\n+            ->add('email', EmailType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'180'\n+                ],\n+                'label'=>'Adress email',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Email(),\n+                    new Assert\\Lenght(['min'=> 2,'max'=>180])\n+                ]\n+            ])\n+            ->add('password')\n+\n+\n+            ->add('name', TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'50'\n+                ],\n+                'label'=>'Nom',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\NotBlank(),\n+                    new Assert\\Lenght(['min'=> 2,'max'=>50])\n+                ]\n+                ])\n+\n+\n+\n+            ->add('pseudo', TextType::class,[\n+                'attr'=>[\n+                    'class'=>'form-control',\n+                    'minLenght'=>'2',\n+                    'maxLenght'=>'50'\n+                ],\n+                'label'=>'Nom',\n+                'label_attr'=>[\n+                    'class'=>'form-label'\n+                ],\n+                'constraints'=>[\n+                    new Assert\\Lenght(['min'=> 2,'max'=>50])\n+                ]\n+                ])\n+\n+            ->add('submit', SubmitType::class,)\n+        ;\n+    }\n+\n+    public function configureOptions(OptionsResolver $resolver): void\n+    {\n+        $resolver->setDefaults([\n+            'data_class' => User::class,\n+        ]);\n+    }\n+   \n+\n+}\n"
+                }
+            ],
+            "date": 1750944952517,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Form;\n\nuse App\\Entity\\User;\nuse Symfony\\Component\\Form\\AbstractType;\nuse Symfony\\Component\\Form\\FormBuilderInterface;\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\n\nclass RegistrationType extends AbstractType\n{\n    public function buildForm(FormBuilderInterface $builder, array $options): void\n    {\n        $builder\n            ->add('email')\n            ->add('password')\n            ->add('name')\n            ->add('pseudo')\n            ->add('createdAt')\n        ;\n    }\n\n    public function configureOptions(OptionsResolver $resolver): void\n    {\n        $resolver->setDefaults([\n            'data_class' => User::class,\n        ]);\n    }\n}\n"
+        }
+    ]
+}

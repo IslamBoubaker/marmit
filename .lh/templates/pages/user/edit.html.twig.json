@@ -1,0 +1,154 @@
+{
+    "sourceFile": "templates/pages/user/edit.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 34,
+            "patches": [
+                {
+                    "date": 1751012199424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751012208752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,8 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Hello UserController!{% endblock %}\n+{% block title %}Modifica{% endblock %}\n \n {% block body %}\n-<style>\n-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n-</style>\n \n-<div class=\"example-wrapper\">\n-    <h1>Hello {{ controller_name }}! ✅</h1>\n \n-\n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012215309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Modifica{% endblock %}\n+{% block title %}Modification de l'utili{% endblock %}\n \n {% block body %}\n \n \n"
+                },
+                {
+                    "date": 1751012223211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Modification de l'utili{% endblock %}\n+{% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n+<div></div>\n \n-\n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012230912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n-<div></div>\n+<div class='container</div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012236068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n-<div class='container</div>\n+<div class=\"container\"</div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012242365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n \n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n-<div class=\"container\"</div>\n+<div class=\"container\">\n+</div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012248938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,9 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n+<h1></h1>\n+\n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012254954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n-<h1></h1>\n+<h1 class></h1>\n \n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012264349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n-<h1 class></h1>\n+<h1 class=\"mt-4></h1>\n \n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012271722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n-<h1 class=\"mt-4></h1>\n+<h1 class=\"mt-4\">Modification</h1>\n \n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012280531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n-<h1 class=\"mt-4\">Modification</h1>\n+<h1 class=\"mt-4\">Modificationde votre profil utilis</h1>\n \n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012286332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n-<h1 class=\"mt-4\">Modificationde votre profil utilis</h1>\n-\n+<h1 class=\"mt-4\">Modificationde votre profil utilisateur</h1>\n+di\n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012295736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n \n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modificationde votre profil utilisateur</h1>\n-di\n+<div class></div>i\n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012301460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n \n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modificationde votre profil utilisateur</h1>\n-<div class></div>i\n+<div class=\"mt-4\"></div>i\n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012308099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modificationde votre profil utilisateur</h1>\n-<div class=\"mt-4\"></div>i\n+<div class=\"mt-4\">\n </div>\n+</div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751012313942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modificationde votre profil utilisateur</h1>\n <div class=\"mt-4\">\n+{{form}}\n </div>\n </div>\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1751014654426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+{% extends 'base.html.twig' %}\n+\n+{% block title %}Modification de l'utilisateur{% endblock %}\n+\n+{% block body %}\n+<div class=\"container\">\n+<h1 class=\"mt-4\">Modificationde utilisateur</h1>\n+<div class=\"mt-4\">\n+{{form(form)}}\n+</div>\n+</div>\n+\n+{% endblock %}\n"
+                },
+                {
+                    "date": 1751014667526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,24 +3,12 @@\n {% block title %}Modification de l'utilisateur{% endblock %}\n \n {% block body %}\n <div class=\"container\">\n-<h1 class=\"mt-4\">Modificationde utilisateur</h1>\n+<h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n+\n {{form(form)}}\n </div>\n </div>\n \n {% endblock %}\n-{% extends 'base.html.twig' %}\n-\n-{% block title %}Modification de l'utilisateur{% endblock %}\n-\n-{% block body %}\n-<div class=\"container\">\n-<h1 class=\"mt-4\">Modificationde votre profil utilisateur</h1>\n-<div class=\"mt-4\">\n-{{form}}\n-</div>\n-</div>\n-\n-{% endblock %}\n"
+                },
+                {
+                    "date": 1751014673356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n-\n+{% for }\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014680268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n-{% for }\n+{% for message in app}\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014686409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n-{% for message in app}\n+{% for message in app.flashes()}\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014693291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n-{% for message in app.flashes()}\n+{% for message in app.flashes('warning)}\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014699580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n-{% for message in app.flashes('warning)}\n+{% for message in app.flashes('warning')% }\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014705729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n {% block body %}\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n-{% for message in app.flashes('warning')% }\n+{% for message in app.flashes('warning') %}\n+<div></div>\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014714071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n {% for message in app.flashes('warning') %}\n-<div></div>\n+<div class=\"alert alert</div>\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014719515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n {% for message in app.flashes('warning') %}\n-<div class=\"alert alert</div>\n+<div class=\"alert alert-warning mt</div>\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014726359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n {% for message in app.flashes('warning') %}\n-<div class=\"alert alert-warning mt</div>\n+<div class=\"alert alert-warning mt-4\"></div>\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014733376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n {% for message in app.flashes('warning') %}\n <div class=\"alert alert-warning mt-4\"></div>\n+{{message}}\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014738651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n {% for message in app.flashes('warning') %}\n <div class=\"alert alert-warning mt-4\"></div>\n-{{message}}\n+{{ message }}\n+\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014744677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n <div class=\"container\">\n <h1 class=\"mt-4\">Modification de l'utilisateur</h1>\n <div class=\"mt-4\">\n {% for message in app.flashes('warning') %}\n-<div class=\"alert alert-warning mt-4\"></div>\n+<div class=\"alert alert-warning mt-4\">\n {{ message }}\n-\n+</div>\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014749933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n {% for message in app.flashes('warning') %}\n <div class=\"alert alert-warning mt-4\">\n {{ message }}\n </div>\n+%\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014755417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {% for message in app.flashes('warning') %}\n <div class=\"alert alert-warning mt-4\">\n {{ message }}\n </div>\n-%\n+{%}\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014760476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {% for message in app.flashes('warning') %}\n <div class=\"alert alert-warning mt-4\">\n {{ message }}\n </div>\n-{%}\n+{%endfor}\n {{form(form)}}\n </div>\n </div>\n \n"
+                },
+                {
+                    "date": 1751014765990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {% for message in app.flashes('warning') %}\n <div class=\"alert alert-warning mt-4\">\n {{ message }}\n </div>\n-{%endfor}\n+{% endfor %} \n {{form(form)}}\n </div>\n </div>\n \n"
+                }
+            ],
+            "date": 1751012199424,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Hello UserController!{% endblock %}\n\n{% block body %}\n<style>\n    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n</style>\n\n<div class=\"example-wrapper\">\n    <h1>Hello {{ controller_name }}! ✅</h1>\n\n\n{% endblock %}\n"
+        }
+    ]
+}

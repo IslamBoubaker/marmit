@@ -1,0 +1,170 @@
+{
+    "sourceFile": "templates/pages/recipe/new.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 38,
+            "patches": [
+                {
+                    "date": 1750921851701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750921863106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n {% block body %}\n     <h1>Create new Recipe</h1>\n \n-    {{ include('recipe/_form.html.twig') }}\n+    {# {{ include('recipe/_form.html.twig') }} #}\n \n     <a href=\"{{ path('app_recipe_index') }}\">back to list</a>\n {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750921868527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n {% block title %}New Recipe{% endblock %}\n \n {% block body %}\n+\n     <h1>Create new Recipe</h1>\n \n     {# {{ include('recipe/_form.html.twig') }} #}\n \n"
+                },
+                {
+                    "date": 1750921879507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n {% block title %}New Recipe{% endblock %}\n \n {% block body %}\n-\n+ <div class\n     <h1>Create new Recipe</h1>\n \n     {# {{ include('recipe/_form.html.twig') }} #}\n \n"
+                },
+                {
+                    "date": 1750921888774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \n {% block title %}New Recipe{% endblock %}\n \n {% block body %}\n- <div class\n-    <h1>Create new Recipe</h1>\n+ <div class=\"container\">\n+    <h1 class=>Create new Recipe</h1>\n \n     {# {{ include('recipe/_form.html.twig') }} #}\n \n     <a href=\"{{ path('app_recipe_index') }}\">back to list</a>\n"
+                },
+                {
+                    "date": 1750921894676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}New Recipe{% endblock %}\n \n {% block body %}\n  <div class=\"container\">\n-    <h1 class=>Create new Recipe</h1>\n+    <h1 class=\"\">Create new Recipe</h1>\n \n     {# {{ include('recipe/_form.html.twig') }} #}\n \n     <a href=\"{{ path('app_recipe_index') }}\">back to list</a>\n"
+                },
+                {
+                    "date": 1750921938705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,10 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}New Recipe{% endblock %}\n \n {% block body %}\n  <div class=\"container\">\n-    <h1 class=\"\">Create new Recipe</h1>\n+    <h1 class=\"mt-4\">Create new Recipe</h1>\n \n     {# {{ include('recipe/_form.html.twig') }} #}\n \n     <a href=\"{{ path('app_recipe_index') }}\">back to list</a>\n"
+                },
+                {
+                    "date": 1750921945619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,8 @@\n {% extends 'base.html.twig' %}\n-\n-\n {% block body %}\n  <div class=\"container\">\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n     {# {{ include('recipe/_form.html.twig') }} #}\n-\n-    <a href=\"{{ path('app_recipe_index') }}\">back to list</a>\n {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750922384754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +0,0 @@\n-{% extends 'base.html.twig' %}\n-{% block body %}\n- <div class=\"container\">\n-    <h1 class=\"mt-4\">Create new Recipe</h1>\n-\n-    {# {{ include('recipe/_form.html.twig') }} #}\n-{% endblock %}\n-\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750922393194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,9 @@\n+{% extends 'base.html.twig' %}\n+{% block body %}\n+ <div class=\"container\">\n+    <h1 class=\"mt-4\">Create new Recipe</h1>\n \n+        \n+        \n+        {% endblock %}\n+\n"
+                },
+                {
+                    "date": 1750922399282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n  <div class=\"container\">\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n-        \n+        {{form}}\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923589529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n  <div class=\"container\">\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n-        {{form}}\n+        {{form_start(form)}}\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923596183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n  <div class=\"container\">\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n-        {{form_start(form)}}\n+        {{ form_start(form) }}\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923601899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,7 @@\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n         {{ form_start(form) }}\n+        <div></div>\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923607733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n         {{ form_start(form) }}\n-        <div></div>\n+        <div class</div>\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923613434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n         {{ form_start(form) }}\n-        <div class</div>\n+        <div class=\"\"</div>\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923623615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n         {{ form_start(form) }}\n-        <div class=\"\"</div>\n+        <div class=\"form-group\"></div>\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923662152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,15 @@\n  <div class=\"container\">\n     <h1 class=\"mt-4\">Create new Recipe</h1>\n \n         \n-        {{ form_start(form) }}\n-        <div class=\"form-group\"></div>\n+      \t\t{{ form_start(form) }}\n+\t\t<div class=\"form-group\">\n+\t\t\t{{ form_label(form.name) }}\n+\t\t\t{{ form_widget(form.name) }}\n+\t\t\n+\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.name) }}\n+\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923669376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n \t\t\n \n \t\t<div class=\"form-error\">\n             {{ form_errors(form.name) }}\n-\n+        </div>\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923676952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,6 +12,8 @@\n \n \t\t<div class=\"form-error\">\n             {{ form_errors(form.name) }}\n         </div>\n+        </div>\n+\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923721813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,8 @@\n       \t\t{{ form_start(form) }}\n \t\t<div class=\"form-group\">\n \t\t\t{{ form_label(form.name) }}\n \t\t\t{{ form_widget(form.name) }}\n-\t\t\n-\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.name) }}\n         </div>\n         </div>\n"
+                },
+                {
+                    "date": 1750923740437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,14 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.name) }}\n         </div>\n         </div>\n+          <div class=\"form-group\">\n+\t\t\t{{ form_label(form.nbPeople) }}\n+\t\t\t{{ form_widget(form.nbPeople) }}\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.nbPeople) }}\n+\t\t\t</div>\n+\t\t\t</div>\n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923748370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,14 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.nbPeople) }}\n \t\t\t</div>\n \t\t\t</div>\n+               <div class=\"form-group\">\n+\t\t\t{{ form_label(form.nbPeople) }}\n+\t\t\t{{ form_widget(form.nbPeople) }}\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.nbPeople) }}\n+\t\t\t</div>\n+\t\t\t</div>\n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923756419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n             {{ form_errors(form.nbPeople) }}\n \t\t\t</div>\n \t\t\t</div>\n                <div class=\"form-group\">\n-\t\t\t{{ form_label(form.nbPeople) }}\n-\t\t\t{{ form_widget(form.nbPeople) }}\n+\t\t\t{{ form_label(form.time) }}\n+\t\t\t{{ form_widget(form.time) }}\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.nbPeople) }}\n \t\t\t</div>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1750923765201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,12 +19,12 @@\n             {{ form_errors(form.nbPeople) }}\n \t\t\t</div>\n \t\t\t</div>\n                <div class=\"form-group\">\n-\t\t\t{{ form_label(form.time) }}\n-\t\t\t{{ form_widget(form.time) }}\n+\t\t\t{{ form_label(form.dz) }}\n+\t\t\t{{ form_widget(form.dz) }}\n \t\t<div class=\"form-error\">\n-            {{ form_errors(form.nbPeople) }}\n+            {{ form_errors(form.dz) }}\n \t\t\t</div>\n \t\t\t</div>\n \n         {% endblock %}\n"
+                },
+                {
+                    "date": 1750923776863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,13 +19,14 @@\n             {{ form_errors(form.nbPeople) }}\n \t\t\t</div>\n \t\t\t</div>\n                <div class=\"form-group\">\n-\t\t\t{{ form_label(form.dz) }}\n-\t\t\t{{ form_widget(form.dz) }}\n+\t\t\t{{ form_label(form.time) }}\n+\t\t\t{{ form_widget(form.time) }}\n \t\t<div class=\"form-error\">\n-            {{ form_errors(form.dz) }}\n+            {{ form_errors(form.time) }}\n \t\t\t</div>\n \t\t\t</div>\n+            \n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923787191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,13 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.time) }}\n \t\t\t</div>\n \t\t\t</div>\n-            \n+            \t{{ form_label(form.difficulty) }}\n+\t\t\t{{ form_widget(form.difficulty) }}\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.difficulty) }}\n+\t\t\t</div>\n+\t\t\t</div>\n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923804656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,7 +31,13 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.difficulty) }}\n \t\t\t</div>\n \t\t\t</div>\n+            \t{{ form_label(form.description) }}\n+\t\t\t{{ form_widget(form.description) }}\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.description) }}\n+\t\t\t</div>\n+\t\t\t</div>\n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923812722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,7 +37,13 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.description) }}\n \t\t\t</div>\n \t\t\t</div>\n+            \t{{ form_label(form.price) }}\n+\t\t\t{{ form_widget(form.price) }}\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.price) }}\n+\t\t\t</div>\n+\t\t\t</div>\n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923819462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,7 +43,13 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.price) }}\n \t\t\t</div>\n \t\t\t</div>\n+            \t{{ form_label(form.dz) }}\n+\t\t\t{{ form_widget(form.dz) }}\n+\t\t<div class=\"form-error\">\n+            {{ form_errors(form.dz) }}\n+\t\t\t</div>\n+\t\t\t</div>\n \n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923835104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,12 +43,12 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.price) }}\n \t\t\t</div>\n \t\t\t</div>\n-            \t{{ form_label(form.dz) }}\n-\t\t\t{{ form_widget(form.dz) }}\n+            \t{{ form_label(form.isFavorite) }}\n+\t\t\t{{ form_widget(form.isFavorite) }}\n \t\t<div class=\"form-error\">\n-            {{ form_errors(form.dz) }}\n+            {{ form_errors(form.isFavorite) }}\n \t\t\t</div>\n \t\t\t</div>\n \n         {% endblock %}\n"
+                },
+                {
+                    "date": 1750923848567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.time) }}\n \t\t\t</div>\n \t\t\t</div>\n+              <div class=\"form-group\">\n             \t{{ form_label(form.difficulty) }}\n \t\t\t{{ form_widget(form.difficulty) }}\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.difficulty) }}\n"
+                },
+                {
+                    "date": 1750923853616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,20 +32,23 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.difficulty) }}\n \t\t\t</div>\n \t\t\t</div>\n+              <div class=\"form-group\">\n             \t{{ form_label(form.description) }}\n \t\t\t{{ form_widget(form.description) }}\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.description) }}\n \t\t\t</div>\n \t\t\t</div>\n+              <div class=\"form-group\">\n             \t{{ form_label(form.price) }}\n \t\t\t{{ form_widget(form.price) }}\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.price) }}\n \t\t\t</div>\n \t\t\t</div>\n+              <div class=\"form-group\">\n             \t{{ form_label(form.isFavorite) }}\n \t\t\t{{ form_widget(form.isFavorite) }}\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.isFavorite) }}\n"
+                },
+                {
+                    "date": 1750923860772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,7 +53,7 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.isFavorite) }}\n \t\t\t</div>\n \t\t\t</div>\n-\n+{{}}\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923866100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,7 +53,8 @@\n \t\t<div class=\"form-error\">\n             {{ form_errors(form.isFavorite) }}\n \t\t\t</div>\n \t\t\t</div>\n-{{}}\n+{{ form_row(form.ingredients) }}\n+\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750923872715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,7 +54,7 @@\n             {{ form_errors(form.isFavorite) }}\n \t\t\t</div>\n \t\t\t</div>\n {{ form_row(form.ingredients) }}\n-\n+{{from_end}}\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750924157367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,7 +54,6 @@\n             {{ form_errors(form.isFavorite) }}\n \t\t\t</div>\n \t\t\t</div>\n {{ form_row(form.ingredients) }}\n-{{from_end}}\n-        {% endblock %}\n+{{ form_end(form) }}        {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750930581238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,8 @@\n             {{ form_errors(form.isFavorite) }}\n \t\t\t</div>\n \t\t\t</div>\n {{ form_row(form.ingredients) }}\n-\n+b\n {{ form_end(form) }}\n         {% endblock %}\n \n"
+                },
+                {
+                    "date": 1750930625100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n \t\t\t</div>\n {{ form_row(form.ingredients) }}\n <br>\n <div id=\"ingredients-wrapper\">\n-{% for }\n+{% for f}\n </div>\n {{ form_end(form) }}\n         {% endblock %}\n \n"
+                }
+            ],
+            "date": 1750921851701,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}New Recipe{% endblock %}\n\n{% block body %}\n    <h1>Create new Recipe</h1>\n\n    {{ include('recipe/_form.html.twig') }}\n\n    <a href=\"{{ path('app_recipe_index') }}\">back to list</a>\n{% endblock %}\n\n"
+        }
+    ]
+}
