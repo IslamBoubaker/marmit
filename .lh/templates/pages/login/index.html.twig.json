@@ -1,0 +1,114 @@
+{
+    "sourceFile": "templates/pages/login/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 24,
+            "patches": [
+                {
+                    "date": 1750941816275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750941822781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n-\n+{% if }\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941828901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n \n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n-{% if }\n+{% if error %}\n+\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941835269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-\n+<div>{{e</div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941853577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{e</div>\n+<div>{{error.messageK</div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941859538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{error.messageK</div>\n+<div>{{error.messageKey|trans</div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941870902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{error.messageKey|trans</div>\n+<div>{{error.messageKey|trans(error.messageData</div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941876866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{error.messageKey|trans(error.messageData</div>\n+<div>{{error.messageKey|trans(error.messageData, '</div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941883819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{error.messageKey|trans(error.messageData, '</div>\n+<div>{{error.messageKey|trans(error.messageData, 'security'</div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941889667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{error.messageKey|trans(error.messageData, 'security'</div>\n+<div>{{error.messageKey|trans(error.messageData, 'security' </div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941894827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Hello LoginController!{% endblock %}\n \n {% block body %}\n {% if error %}\n-<div>{{error.messageKey|trans(error.messageData, 'security' </div>\n+<div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941901981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n \n {% block body %}\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n-</div>\n+\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941907824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n \n {% block body %}\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n-\n+{}\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941914472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n \n {% block body %}\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n-{}\n+{% endif }\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941920621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,8 @@\n \n {% block body %}\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n-{% endif }\n+{% endif %}\n+\n+<\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941929041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<\n+<form action=\"\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941936870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<form action=\"\n+<form action=\"{{path(')}}\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941943270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<form action=\"{{path(')}}\n+<form action=\"{{path(app-login)}}\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941949704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<form action=\"{{path(app-login)}}\n+<form action=\"{{path('app-login')}}\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941957793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<form action=\"{{path('app-login')}}\n+<form action=\"{{ path('app-login') }}\"\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941967436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<form action=\"{{ path('app-login') }}\"\n+<form action=\"{{ path('app-login') }}\" method=\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941976667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,7 @@\n {% if error %}\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n-<form action=\"{{ path('app-login') }}\" method=\n+<form action=\"{{ path('app-login') }}\" method=\"post\">\n+\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941987377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n <form action=\"{{ path('app-login') }}\" method=\"post\">\n-\n+<label for=\"username\"></label>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750941996692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n <div>{{error.messageKey|trans(error.messageData, 'security')}} </div>\n {% endif %}\n \n <form action=\"{{ path('app-login') }}\" method=\"post\">\n-<label for=\"username\">Email</label>\n+<label for=\"username\">Email:</label>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750942040198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n {% endif %}\n \n <form action=\"{{ path('app-login') }}\" method=\"post\">\n <label for=\"username\">Email:</label>\n-<input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ }}>\n+<input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ m}}>\n {% endblock %}\n"
+                }
+            ],
+            "date": 1750941816275,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Hello LoginController!{% endblock %}\n\n{% block body %}\n\n</div>\n{% endblock %}\n"
+        }
+    ]
+}

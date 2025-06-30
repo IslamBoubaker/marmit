@@ -1,0 +1,26 @@
+{
+    "sourceFile": "public/style.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1750931111382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750931117995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n @import \"../node_modules/bootstrap/scss/containers\";\r\n @import \"../node_modules/bootstrap/scss/grid\";\r\n @import \"../node_modules/bootstrap/scss/helpers\";\r\n @import \"../node_modules/bootstrap/scss/utilities/api\";\r\n-#ingriend\n\\ No newline at end of file\n+#ingrien\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1750931124620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n @import \"../node_modules/bootstrap/scss/containers\";\r\n @import \"../node_modules/bootstrap/scss/grid\";\r\n @import \"../node_modules/bootstrap/scss/helpers\";\r\n @import \"../node_modules/bootstrap/scss/utilities/api\";\r\n-#ingrients-wrapper\n\\ No newline at end of file\n+#ingrients-wrapper{}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1750931111382,
+            "name": "Commit-0",
+            "content": "\r\n@import \"../node_modules/bootstrap/scss/functions\";\r\n\r\n\r\n\r\n\r\n@import \"../node_modules/bootstrap/scss/variables\";\r\n@import \"../node_modules/bootstrap/scss/variables-dark\";\r\n@import \"../node_modules/bootstrap/scss/maps\";\r\n@import \"../node_modules/bootstrap/scss/mixins\";\r\n@import \"../node_modules/bootstrap/scss/root\";\r\n\r\n@import \"../node_modules/bootstrap/scss/utilities\";\r\n@import \"../node_modules/bootstrap/scss/reboot\";\r\n@import \"../node_modules/bootstrap/scss/containers\";\r\n@import \"../node_modules/bootstrap/scss/grid\";\r\n@import \"../node_modules/bootstrap/scss/helpers\";\r\n@import \"../node_modules/bootstrap/scss/utilities/api\";\r\n"
+        }
+    ]
+}

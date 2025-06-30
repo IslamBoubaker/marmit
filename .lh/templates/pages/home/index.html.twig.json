@@ -1,0 +1,26 @@
+{
+    "sourceFile": "templates/pages/home/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1750747593452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751286010911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n             garder en privées.</p>\n         <hr class=\"my-4\">\n         <p>Pour commencer, rendez-vous sur la page d'inscription pour\n             utiliser l'application.</p>\n-        <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Inscription</a>\n+        <a class=\"btn btn-primary btn-lg\" href=\"app_registration\" role=\"button\">Inscription</a>\n     </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1751286062860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n             garder en privées.</p>\n         <hr class=\"my-4\">\n         <p>Pour commencer, rendez-vous sur la page d'inscription pour\n             utiliser l'application.</p>\n-        <a class=\"btn btn-primary btn-lg\" href=\"app_registration\" role=\"button\">Inscription</a>\n+        <a class=\"btn btn-primary btn-lg\" href=\"/inscription\" role=\"button\">Inscription</a>\n     </div>\n {% endblock %}\n"
+                }
+            ],
+            "date": 1750747593452,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Accueil - FirstProject{% endblock %}\n\n{% block body %}\n    <div class=\"jumbotron\">\n        <h1 class=\"display-4\">Bienvenue sur FirstProject</h1>\n        <p class=\"lead\">FirstProject est une application qui va te\n            permettre de créer des recettes à base d'ingrédients que tu auras toi-même\n            créé. Tu pourras partager tes recettes à la communauté du site, ou bien les\n            garder en privées.</p>\n        <hr class=\"my-4\">\n        <p>Pour commencer, rendez-vous sur la page d'inscription pour\n            utiliser l'application.</p>\n        <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Inscription</a>\n    </div>\n{% endblock %}\n"
+        }
+    ]
+}

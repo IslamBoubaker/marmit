@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/Controller/IngredientController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1750748149035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750748160820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n class IngredientController extends AbstractController {\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n     public function index(): Response {\n-        return $this->render( 'ingredient/index.html.twig', [\n+        return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n         ] );\n     }\n }\n"
+                },
+                {
+                    "date": 1750748429609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n class IngredientController extends AbstractController {\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n-    public function index(): Response {\n+    public function index(Ing): Response {\n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n         ] );\n     }\n"
+                },
+                {
+                    "date": 1750748435133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,17 @@\n <?php\n \n namespace App\\Controller;\n \n+use App\\Repository\\IngredientRepository;\n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class IngredientController extends AbstractController {\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n-    public function index(Ing): Response {\n+    public function index(IngredientRepository $ingredientRepository): Response {\n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n         ] );\n     }\n"
+                },
+                {
+                    "date": 1750748451040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n class IngredientController extends AbstractController {\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n     public function index(IngredientRepository $ingredientRepository): Response {\n+        $ingred\n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n         ] );\n     }\n"
+                },
+                {
+                    "date": 1750748459265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n class IngredientController extends AbstractController {\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n     public function index(IngredientRepository $ingredientRepository): Response {\n-        $ingred\n+        $ingredients= $ingredientRepository->findAll();\n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n         ] );\n     }\n"
+                },
+                {
+                    "date": 1750748474431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n     public function index(IngredientRepository $ingredientRepository): Response {\n         $ingredients= $ingredientRepository->findAll();\n+         dd($ingredients) \n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n+            'ingredients' => $ingredients,\n         ] );\n     }\n }\n"
+                },
+                {
+                    "date": 1750748479626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n     public function index(IngredientRepository $ingredientRepository): Response {\n         $ingredients= $ingredientRepository->findAll();\n-         dd($ingredients) \n+        \n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n-            'ingredients' => $ingredients,\n+            'ingredients' => $ingredients, dd($ingredients) \n         ] );\n     }\n }\n"
+                },
+                {
+                    "date": 1750748491601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n     public function index(IngredientRepository $ingredientRepository): Response {\n         $ingredients= $ingredientRepository->findAll();\n-        \n+        dd($ingredients)\n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n             'ingredients' => $ingredients,  \n         ] );\n"
+                },
+                {
+                    "date": 1750749901783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n class IngredientController extends AbstractController {\n     #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n \n-    public function index(IngredientRepository $ingredientRepository): Response {\n+    public function index(IngredientRepository $ingredientRepository, ): Response {\n         $ingredients= $ingredientRepository->findAll();\n         return $this->render( 'pages/ingredient/index.html.twig', [\n             'controller_name' => 'IngredientController',\n             'ingredients' => $ingredients,  \n"
+                }
+            ],
+            "date": 1750748149035,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Controller;\n\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\Routing\\Annotation\\Route;\n\nclass IngredientController extends AbstractController {\n    #[ Route( '/ingredient', name: 'app_ingredient' ) ]\n\n    public function index(): Response {\n        return $this->render( 'ingredient/index.html.twig', [\n            'controller_name' => 'IngredientController',\n        ] );\n    }\n}\n"
+        }
+    ]
+}

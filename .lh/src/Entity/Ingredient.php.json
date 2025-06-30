@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/Entity/Ingredient.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1750755161697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750755234018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,12 @@\n namespace App\\Entity;\n \n use App\\Repository\\IngredientRepository;\n use Doctrine\\ORM\\Mapping as ORM;\n+use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n \n #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n- \n- #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n  #[UniqueEntity('name')]\n \n class Ingredient\n {\n"
+                },
+                {
+                    "date": 1750922188213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n \n namespace App\\Entity;\n \n use App\\Repository\\IngredientRepository;\n+use Doctrine\\Common\\Collections\\ArrayCollection;\n+use Doctrine\\Common\\Collections\\Collection;\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n \n@@ -36,8 +38,11 @@\n     #[ORM\\Column]\n     #[Assert\\NotNull()]\n     private ?\\DateTimeImmutable $createdAt = null;\n \n+    #[ORM\\ManyToMany(targetEntity: Recipe::class, mappedBy: 'ingredients')]\n+    private Collection $recipes;\n+\n     public function getId(): ?int\n     {\n         return $this->id;\n     }\n@@ -82,8 +87,42 @@\n      * Constructs\n      */\n     public function __construct()\n     {\n-        $this->createdAt = new \\DateTimeImmutable();    \n+        $this->createdAt = new \\DateTimeImmutable();\n+        $this->recipes = new ArrayCollection();    \n     }\n+\n+    /**\n+     * @return Collection<int, Recipe>\n+     */\n+    public function getRecipes(): Collection\n+    {\n+        return $this->recipes;\n+    }\n+\n+    public function addRecipe(Recipe $recipe): static\n+    {\n+        if (!$this->recipes->contains($recipe)) {\n+            $this->recipes->add($recipe);\n+            $recipe->addIngredient($this);\n+        }\n+\n+        return $this;\n+    }\n+\n+    public function removeRecipe(Recipe $recipe): static\n+    {\n+        if ($this->recipes->removeElement($recipe)) {\n+            $recipe->removeIngredient($this);\n+        }\n+\n+        return $this;\n+    }\n+\n+    public function __toString(): string\n+{\n+    return $this->name;\n+}\n+\n     \n }\n"
+                },
+                {
+                    "date": 1750922523974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n \n         return $this;\n     }\n \n-    public function __toString(): string\n+    public function __toString(): \n {\n     return $this->name;\n }\n \n"
+                },
+                {
+                    "date": 1751022580595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,12 @@\n \n     #[ORM\\ManyToMany(targetEntity: Recipe::class, mappedBy: 'ingredients')]\n     private Collection $recipes;\n \n+    #[ORM\\ManyToOne(inversedBy: 'ingredients')]\n+    #[ORM\\JoinColumn(nullable: false)]\n+    private ?User $user = null;\n+\n     public function getId(): ?int\n     {\n         return $this->id;\n     }\n@@ -118,11 +122,23 @@\n \n         return $this;\n     }\n \n-    public function __toString(): \n+    public function __toString()\n {\n     return $this->name;\n }\n \n+    // public function getUser(): ?User\n+    // {\n+    //     return $this->user;\n+    // }\n+\n+    // public function setUser(?User $user): static\n+    // {\n+    //     $this->user = $user;\n+\n+    //     return $this;\n+    // }\n+\n     \n }\n"
+                },
+                {
+                    "date": 1751022731568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -127,18 +127,18 @@\n {\n     return $this->name;\n }\n \n-    // public function getUser(): ?User\n-    // {\n-    //     return $this->user;\n-    // }\n+    public function getUser(): ?User\n+    {\n+        return $this->user;\n+    }\n \n-    // public function setUser(?User $user): static\n-    // {\n-    //     $this->user = $user;\n+    public function setUser(?User $user): static\n+    {\n+        $this->user = $user;\n \n-    //     return $this;\n-    // }\n+        return $this;\n+    }\n \n     \n }\n"
+                },
+                {
+                    "date": 1751031748806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n     #[ORM\\Column]\n+    \n     private ?int $id = null;\n \n     #[ORM\\Column(length: 50)]\n     #[Assert\\Length(\n"
+                },
+                {
+                    "date": 1751031788182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n     #[ORM\\Column]\n-    \n+\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 50)]\n     #[Assert\\Length(\n"
+                },
+                {
+                    "date": 1751032055536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,11 @@\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n \n+#[ORM\\Entity(repositoryClass: UserRepository::class)]\n+#[ORM\\EntityListeners(['App\\EntityListener\\UserListener'])] \n+\n #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n  #[UniqueEntity('name')]\n \n class Ingredient\n"
+                },
+                {
+                    "date": 1751032074268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,20 +8,16 @@\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n \n-#[ORM\\Entity(repositoryClass: UserRepository::class)]\n-#[ORM\\EntityListeners(['App\\EntityListener\\UserListener'])] \n-\n #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n  #[UniqueEntity('name')]\n \n class Ingredient\n {\n     #[ORM\\Id]\n     #[ORM\\GeneratedValue]\n     #[ORM\\Column]\n-\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 50)]\n     #[Assert\\Length(\n@@ -131,18 +127,18 @@\n {\n     return $this->name;\n }\n \n-    public function getUser(): ?User\n-    {\n-        return $this->user;\n-    }\n+    // public function getUser(): ?User\n+    // {\n+    //     return $this->user;\n+    // }\n \n-    public function setUser(?User $user): static\n-    {\n-        $this->user = $user;\n+    // public function setUser(?User $user): static\n+    // {\n+    //     $this->user = $user;\n \n-        return $this;\n-    }\n+    //     return $this;\n+    // }\n \n     \n }\n"
+                },
+                {
+                    "date": 1751290310957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     private Collection $recipes;\n \n     #[ORM\\ManyToOne(inversedBy: 'ingredients')]\n     #[ORM\\JoinColumn(nullable: false)]\n-    private ?User $user = null;\n+    // private ?User $user = null;\n \n     public function getId(): ?int\n     {\n         return $this->id;\n@@ -127,18 +127,18 @@\n {\n     return $this->name;\n }\n \n-    // public function getUser(): ?User\n-    // {\n-    //     return $this->user;\n-    // }\n+    public function getUser(): ?User\n+    {\n+        return $this->user;\n+    }\n \n-    // public function setUser(?User $user): static\n-    // {\n-    //     $this->user = $user;\n+    public function setUser(?User $user): static\n+    {\n+        $this->user = $user;\n \n-    //     return $this;\n-    // }\n+        return $this;\n+    }\n \n     \n }\n"
+                },
+                {
+                    "date": 1751290342872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     private Collection $recipes;\n \n     #[ORM\\ManyToOne(inversedBy: 'ingredients')]\n     #[ORM\\JoinColumn(nullable: false)]\n-    // private ?User $user = null;\n+    private ?User $user = null;\n \n     public function getId(): ?int\n     {\n         return $this->id;\n"
+                }
+            ],
+            "date": 1750755161697,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\IngredientRepository;\nuse Doctrine\\ORM\\Mapping as ORM;\nuse Symfony\\Component\\Validator\\Constraints as Assert;\n\n#[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n \n #[ORM\\Entity(repositoryClass: IngredientRepository::class)]\n #[UniqueEntity('name')]\n\nclass Ingredient\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 50)]\n    #[Assert\\Length(\n        min :2,\n        max :50,\n        minMessage : 'The name must be at least {{ limit }} characters long',\n        maxMessage : 'The name cannot be longer than {{ limit }} characters')]\n        #[Assert\\NotBlank()]\n    private ?string $name = null;\n\n    #[ORM\\Column]\n    #[Assert\\Positive()]\n    #[Assert\\LessThan(200)]\n    #[Assert\\NotNull()]\n\n    private ?float $price = null;\n\n    #[ORM\\Column]\n    #[Assert\\NotNull()]\n    private ?\\DateTimeImmutable $createdAt = null;\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getName(): ?string\n    {\n        return $this->name;\n    }\n\n    public function setName(string $name): static\n    {\n        $this->name = $name;\n\n        return $this;\n    }\n\n    public function getPrice(): ?float\n    {\n        return $this->price;\n    }\n\n    public function setPrice(float $price): static\n    {\n        $this->price = $price;\n\n        return $this;\n    }\n\n    public function getCreatedAt(): ?\\DateTimeImmutable\n    {\n        return $this->createdAt;\n    }\n\n    public function setCreatedAt(\\DateTimeImmutable $createdAt): static\n    {\n        $this->createdAt = $createdAt;\n\n        return $this;\n    }\n    \n    /**\n     * Constructs\n     */\n    public function __construct()\n    {\n        $this->createdAt = new \\DateTimeImmutable();    \n    }\n    \n}\n"
+        }
+    ]
+}

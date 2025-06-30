@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/Controller/UserController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1751011726111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751011732219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n {\n     #[Route('/user', name: 'app_user')]\n     public function index(): Response\n     {\n-        return $this->render('user/edit.html.twig', [\n+        return $this->render('<pages>user/edit.html.twig', [\n             'controller_name' => 'UserController',\n         ]);\n     }\n }\n"
+                },
+                {
+                    "date": 1751011742051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class UserController extends AbstractController\n {\n-    #[Route('/user', name: 'app_user')]\n+    #[Route('/utilis', name: 'app_user')]\n     public function index(): Response\n     {\n-        return $this->render('<pages>user/edit.html.twig', [\n+        return $this->render('pages/user/edit.html.twig', [\n             'controller_name' => 'UserController',\n         ]);\n     }\n }\n"
+                },
+                {
+                    "date": 1751011748069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class UserController extends AbstractController\n {\n-    #[Route('/utilis', name: 'app_user')]\n+    #[Route('/utilisateur/edition', name: 'app_user')]\n     public function index(): Response\n     {\n         return $this->render('pages/user/edit.html.twig', [\n             'controller_name' => 'UserController',\n"
+                },
+                {
+                    "date": 1751011754485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class UserController extends AbstractController\n {\n-    #[Route('/utilisateur/edition', name: 'app_user')]\n+    #[Route('/utilisateur/edition/{id}', name: 'app_user')]\n     public function index(): Response\n     {\n         return $this->render('pages/user/edit.html.twig', [\n             'controller_name' => 'UserController',\n"
+                },
+                {
+                    "date": 1751011760265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class UserController extends AbstractController\n {\n-    #[Route('/utilisateur/edition/{id}', name: 'app_user')]\n+    #[Route('/utilisateur/edition/{id}', name: 'app_user_edit')]\n     public function index(): Response\n     {\n         return $this->render('pages/user/edit.html.twig', [\n             'controller_name' => 'UserController',\n"
+                },
+                {
+                    "date": 1751011772483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n class UserController extends AbstractController\n {\n     #[Route('/utilisateur/edition/{id}', name: 'app_user_edit')]\n-    public function i(): Response\n+    public function (): Response\n     {\n         return $this->render('pages/user/edit.html.twig', [\n             'controller_name' => 'UserController',\n         ]);\n"
+                },
+                {
+                    "date": 1751011796432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+<?php\n+\n+namespace App\\Controller;\n+\n+use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n+use Symfony\\Component\\HttpFoundation\\Response;\n+use Symfony\\Component\\Routing\\Annotation\\Route;\n+\n+class UserController extends AbstractController\n+{\n+    #[Route('/utilisateur/edition/{id}', name: 'app_user_edit')]\n+    public function index(): Response\n+    {\n+        return $this->render('pages/user/edit.html.twig', [\n+            'controller_name' => 'UserController',\n+        ]);\n+    }\n+}\n"
+                }
+            ],
+            "date": 1751011726111,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Controller;\n\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\Routing\\Annotation\\Route;\n\nclass UserController extends AbstractController\n{\n    #[Route('/user', name: 'app_user')]\n    public function index(): Response\n    {\n        return $this->render('user/edit.html.twig', [\n            'controller_name' => 'UserController',\n        ]);\n    }\n}\n"
+        }
+    ]
+}

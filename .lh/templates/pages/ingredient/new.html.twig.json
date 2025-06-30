@@ -1,0 +1,122 @@
+{
+    "sourceFile": "templates/pages/ingredient/new.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 26,
+            "patches": [
+                {
+                    "date": 1750751072997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750751079210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,14 @@\n-{%}\n\\ No newline at end of file\n+{% extends 'base.html.twig' %}\r\n+\r\n+{% block title %}Créer un nouvel ingrédient{% endblock %}\r\n+\r\n+{% block body %}\r\n+<div class=\"container mt-4\">\r\n+    <h1>Créer un nouvel ingrédient</h1>\r\n+\r\n+    {{ form_start(form) }}\r\n+        {{ form_widget(form) }}\r\n+        <button class=\"btn btn-primary\">Créer</button>\r\n+    {{ form_end(form) }}\r\n+</div>\r\n+{% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751087333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,9 @@\n {% extends 'base.html.twig' %}\r\n \r\n-{% block title %}Créer un nouvel ingrédient{% endblock %}\r\n \r\n+\r\n {% block body %}\r\n <div class=\"container mt-4\">\r\n-    <h1>Créer un nouvel ingrédient</h1>\r\n-\r\n-    {{ form_start(form) }}\r\n-        {{ form_widget(form) }}\r\n-        <button class=\"btn btn-primary\">Créer</button>\r\n-    {{ form_end(form) }}\r\n+    \r\n </div>\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751093352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \r\n \r\n \r\n {% block body %}\r\n-<div class=\"container mt-4\">\r\n+<div class=\"container\">\r\n     \r\n </div>\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751101746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n \r\n \r\n {% block body %}\r\n <div class=\"container\">\r\n-    \r\n+    <h1 class=></h1>\r\n </div>\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751106825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n \r\n \r\n {% block body %}\r\n <div class=\"container\">\r\n-    <h1 class=></h1>\r\n+    <h1 class=\"mt-4\"></h1>\r\n </div>\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751114965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n \r\n \r\n {% block body %}\r\n <div class=\"container\">\r\n-    <h1 class=\"mt-4\"></h1>\r\n+    <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751472468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,6 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n+\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750751480160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,6 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n-\r\n+{{form}}\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752665383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,10 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n-{{form}}\r\n+{{ form_start(form) }}\r\n+    {{ form_row(form.name) }}\r\n+    {{ form_row(form.submit) }}\r\n+{{ form_end(form) }}\r\n+\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752800742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,7 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n-{{ form_start(form) }}\r\n-    {{ form_row(form.name) }}\r\n-    {{ form_row(form.submit) }}\r\n-{{ form_end(form) }}\r\n \r\n+\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752807392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,10 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n+{{ form_start(form) }}\r\n+    {{ form_row(form.name) }}\r\n+    {{ form_row(form.submit) }}\r\n+{{ form_end(form) }}\r\n \r\n-\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752815206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n-{{ form_start(form) }}\r\n-    {{ form_row(form.name) }}\r\n+{{ form(form) }}\r\n+    \r\n     {{ form_row(form.submit) }}\r\n {{ form_end(form) }}\r\n \r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752820444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,5 @@\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n {{ form(form) }}\r\n-    \r\n-    {{ form_row(form.submit) }}\r\n-{{ form_end(form) }}\r\n-\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752829648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,6 @@\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n {{ form(form) }}\r\n+\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752835015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,9 @@\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n {{ form(form) }}\r\n-\r\n+{{ form_start(form) }}\r\n+    {{ form_row(form.name) }}\r\n+    {{ form_row(form.submit) }}\r\n+{{ form_end(form) }}\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752841015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n {{ form(form) }}\r\n-{{ form_start(form) }}\r\n-    {{ form_row(form.name) }}\r\n+{{ form_start(for\r\n     {{ form_row(form.submit) }}\r\n-{{ form_end(form) }}\r\n+\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750752848376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,7 @@\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n </div>\r\n {{ form(form) }}\r\n-{{ form_start(for\r\n-    {{ form_row(form.submit) }}\r\n \r\n+\r\n {% endblock %}\r\n"
+                },
+                {
+                    "date": 1750754558651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+{% extends 'base.html.twig' %}\r\n+\r\n+\r\n+\r\n+{% block body %}\r\n+{{ form_start(form) }}\r\n+    {{ form_errors(form) }}\r\n+\r\n+    {{ form_row(form.name) }}\r\n+    {{ form_row(form.dueDate) }}\r\n+\r\n+    {{ form_row(form.submit, { 'label': 'Submit me' }) }}\r\n+{{ form_end(form) }}\r\n+\r\n+\r\n+{% endblock %}\r\n"
+                },
+                {
+                    "date": 1750754571443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,11 @@\n \r\n \r\n \r\n {% block body %}\r\n+<div class=\"container\">\r\n+    <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n+\r\n {{ form_start(form) }}\r\n     {{ form_errors(form) }}\r\n \r\n     {{ form_row(form.name) }}\r\n@@ -13,16 +16,4 @@\n {{ form_end(form) }}\r\n \r\n \r\n {% endblock %}\r\n-{% extends 'base.html.twig' %}\r\n-\r\n-\r\n-\r\n-{% block body %}\r\n-<div class=\"container\">\r\n-    <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n-</div>\r\n-{{ form(form) }}\r\n-\r\n-\r\n-{% endblock %}\r\n"
+                },
+                {
+                    "date": 1750754581276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n \r\n-{{ form_start(form) }}\r\n+<div class {{ form_start(form) }}\r\n     {{ form_errors(form) }}\r\n \r\n     {{ form_row(form.name) }}\r\n     {{ form_row(form.dueDate) }}\r\n"
+                },
+                {
+                    "date": 1750754587546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n {% block body %}\r\n <div class=\"container\">\r\n     <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n \r\n-<div class {{ form_start(form) }}\r\n+<{{ form_start(form) }}\r\n+\r\n     {{ form_errors(form) }}\r\n \r\n     {{ form_row(form.name) }}\r\n     {{ form_row(form.dueDate) }}\r\n"
+                },
+                {
+                    "date": 1750754593628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,18 @@\n {% extends 'base.html.twig' %}\r\n \r\n \r\n-\r\n {% block body %}\r\n-<div class=\"container\">\r\n-    <h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n+\t<div class=\"container\">\r\n+\t\t<h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n+\t\t{{ form_start(form) }}\r\n \r\n-<{{ form_start(form) }}\r\n+\t\t{{ form_errors(form) }}\r\n \r\n-    {{ form_errors(form) }}\r\n+\t\t{{ form_row(form.name) }}\r\n+\t\t{{ form_row(form.dueDate) }}\r\n \r\n-    {{ form_row(form.name) }}\r\n-    {{ form_row(form.dueDate) }}\r\n+\t\t{{ form_row(form.submit, { 'label': 'Submit me' }) }}\r\n+\t\t{{ form_end(form) }}\r\n \r\n-    {{ form_row(form.submit, { 'label': 'Submit me' }) }}\r\n-{{ form_end(form) }}\r\n \r\n-\r\n-{% endblock %}\r\n+\t{% endblock %}\r\n"
+                },
+                {
+                    "date": 1750754600202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n {% block body %}\r\n \t<div class=\"container\">\r\n \t\t<h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n \t\t{{ form_start(form) }}\r\n-\r\n+>div class=\"mb-3\">\r\n+            <label for=\"ingredient_name\" class=\"form-label\r\n \t\t{{ form_errors(form) }}\r\n \r\n \t\t{{ form_row(form.name) }}\r\n \t\t{{ form_row(form.dueDate) }}\r\n"
+                },
+                {
+                    "date": 1750754606986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,9 @@\n {% block body %}\r\n \t<div class=\"container\">\r\n \t\t<h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n \t\t{{ form_start(form) }}\r\n->div class=\"mb-3\">\r\n-            <label for=\"ingredient_name\" class=\"form-label\r\n+<div \r\n \t\t{{ form_errors(form) }}\r\n \r\n \t\t{{ form_row(form.name) }}\r\n \t\t{{ form_row(form.dueDate) }}\r\n"
+                },
+                {
+                    "date": 1750754615225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% block body %}\r\n \t<div class=\"container\">\r\n \t\t<h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n \t\t{{ form_start(form) }}\r\n-<div class \r\n+<div class=\"\" \r\n \t\t{{ form_errors(form) }}\r\n \r\n \t\t{{ form_row(form.name) }}\r\n \t\t{{ form_row(form.dueDate) }}\r\n"
+                },
+                {
+                    "date": 1750754622975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n {% block body %}\r\n \t<div class=\"container\">\r\n \t\t<h1 class=\"mt-4\">Creation d'un ingredient</h1>\r\n \t\t{{ form_start(form) }}\r\n-<div class=\"pm\" \r\n+<div class=\"p\" \r\n \t\t{{ form_errors(form) }}\r\n \r\n \t\t{{ form_row(form.name) }}\r\n \t\t{{ form_row(form.dueDate) }}\r\n"
+                }
+            ],
+            "date": 1750751072997,
+            "name": "Commit-0",
+            "content": "{%}"
+        }
+    ]
+}

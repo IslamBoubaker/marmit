@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/Controller/LoginController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1750941413328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750941521204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,16 @@\n \n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n+use S\n \n class LoginController extends AbstractController\n {\n     #[Route('/login', name: 'app_login')]\n     public function index(): Response\n     {\n-        return $this->render('pageslogin/index.html.twig', [\n+        return $this->render('pages/login/index.html.twig', [\n             'controller_name' => 'LoginController',\n         ]);\n     }\n }\n"
+                },
+                {
+                    "date": 1750941529194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n-use S\n+use Symfony\\Component\\Security\\Http\\Authenticator\\AbstractAuthenticator\n \n class LoginController extends AbstractController\n {\n     #[Route('/login', name: 'app_login')]\n"
+                },
+                {
+                    "date": 1750941537853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n-use Symfony\\Component\\Security\\Http\\Authentica\n+use Symfony\\Component\\Security\\Http\\Authentication\n \n class LoginController extends AbstractController\n {\n     #[Route('/login', name: 'app_login')]\n"
+                },
+                {
+                    "date": 1750941584634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n {\n     #[Route('/login', name: 'app_login')]\n     public function index(): Response\n     {\n-        $error = $autenticationUtils->getLastAuthen\n+        $error = $autenticationUtils->getLastAuthent\n         return $this->render('pages/login/index.html.twig', [\n             'controller_name' => 'LoginController',\n         ]);\n     }\n"
+                }
+            ],
+            "date": 1750941413328,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Controller;\n\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\Routing\\Annotation\\Route;\n\nclass LoginController extends AbstractController\n{\n    #[Route('/login', name: 'app_login')]\n    public function index(): Response\n    {\n        return $this->render('pageslogin/index.html.twig', [\n            'controller_name' => 'LoginController',\n        ]);\n    }\n}\n"
+        }
+    ]
+}

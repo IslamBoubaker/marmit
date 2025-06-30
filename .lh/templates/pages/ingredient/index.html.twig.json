@@ -1,0 +1,38 @@
+{
+    "sourceFile": "templates/pages/ingredient/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1750747615367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750748311081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n \n {% block title %}Hello IngredientController!{% endblock %}\n \n {% block body %}\n+\n+\n <style>\n     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n </style>\n"
+                },
+                {
+                    "date": 1750748613199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n {% block body %}\n \n \n-<style>\n+{# <style>\n     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n </style>\n \n@@ -16,7 +16,7 @@\n     This friendly message is coming from:\n     <ul>\n         <li>Your controller at <code><a href=\"{{ 'C:/Users/EAA/Desktop/Marmiton/src/Controller/IngredientController.php'|file_link(0) }}\">src/Controller/IngredientController.php</a></code></li>\n         <li>Your template at <code><a href=\"{{ 'C:/Users/EAA/Desktop/Marmiton/templates/ingredient/index.html.twig'|file_link(0) }}\">templates/ingredient/index.html.twig</a></code></li>\n-    </ul>\n+    </ul> #}\n </div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1750748621218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,14 @@\n \n {% block title %}Hello IngredientController!{% endblock %}\n \n {% block body %}\n+<div>\n \n \n+\n+\n+\n {# <style>\n     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n </style>\n"
+                },
+                {
+                    "date": 1750748634507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n {% block title %}Hello IngredientController!{% endblock %}\n \n {% block body %}\n \n-{}\n+{%}\n \n <div>\n \n \n"
+                },
+                {
+                    "date": 1750748666728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n \n {% for ingredient in ingredients %}\n <div>\n-<p>{{in</p>\n+<p>{{i</p>\n \n \n \n \n"
+                }
+            ],
+            "date": 1750747615367,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Hello IngredientController!{% endblock %}\n\n{% block body %}\n<style>\n    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n</style>\n\n<div class=\"example-wrapper\">\n    <h1>Hello {{ controller_name }}! ✅</h1>\n\n    This friendly message is coming from:\n    <ul>\n        <li>Your controller at <code><a href=\"{{ 'C:/Users/EAA/Desktop/Marmiton/src/Controller/IngredientController.php'|file_link(0) }}\">src/Controller/IngredientController.php</a></code></li>\n        <li>Your template at <code><a href=\"{{ 'C:/Users/EAA/Desktop/Marmiton/templates/ingredient/index.html.twig'|file_link(0) }}\">templates/ingredient/index.html.twig</a></code></li>\n    </ul>\n</div>\n{% endblock %}\n"
+        }
+    ]
+}

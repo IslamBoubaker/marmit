@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/Entity/User.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1750937328460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750937336867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,11 @@\n     private ?string $email = null;\n \n     #[ORM\\Column]\n     private array $roles = [];\n-    \n \n+    private ?string\n+\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1750937342587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    private ?string $\n+    private ?string $p\n \n     /**\n      * @var string The hashed password\n      */\n"
+                },
+                {
+                    "date": 1750937350585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    private ?string $plainPassword = nul \n+    private ?string $plainPassword = nul\n \n     /**\n      * @var string The hashed password\n      */\n"
+                }
+            ],
+            "date": 1750937328460,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\UserRepository;\nuse Doctrine\\ORM\\Mapping as ORM;\nuse Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface;\nuse Symfony\\Component\\Security\\Core\\User\\UserInterface;\n\n#[ORM\\Entity(repositoryClass: UserRepository::class)]\nclass User implements UserInterface, PasswordAuthenticatedUserInterface\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 180, unique: true)]\n    private ?string $email = null;\n\n    #[ORM\\Column]\n    private array $roles = [];\n    \n\n    /**\n     * @var string The hashed password\n     */\n    #[ORM\\Column]\n    private ?string $password = null;\n\n    #[ORM\\Column(length: 50)]\n    private ?string $name = null;\n\n    #[ORM\\Column(length: 50)]\n    private ?string $pseudo = null;\n\n    #[ORM\\Column]\n    private ?\\DateTimeImmutable $createdAt = null;\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getEmail(): ?string\n    {\n        return $this->email;\n    }\n\n    public function setEmail(string $email): static\n    {\n        $this->email = $email;\n\n        return $this;\n    }\n\n    /**\n     * A visual identifier that represents this user.\n     *\n     * @see UserInterface\n     */\n    public function getUserIdentifier(): string\n    {\n        return (string) $this->email;\n    }\n\n    /**\n     * @see UserInterface\n     */\n    public function getRoles(): array\n    {\n        $roles = $this->roles;\n        // guarantee every user at least has ROLE_USER\n        $roles[] = 'ROLE_USER';\n\n        return array_unique($roles);\n    }\n\n    public function setRoles(array $roles): static\n    {\n        $this->roles = $roles;\n\n        return $this;\n    }\n\n    /**\n     * @see PasswordAuthenticatedUserInterface\n     */\n    public function getPassword(): string\n    {\n        return $this->password;\n    }\n\n    public function setPassword(string $password): static\n    {\n        $this->password = $password;\n\n        return $this;\n    }\n\n    /**\n     * @see UserInterface\n     */\n    public function eraseCredentials(): void\n    {\n        // If you store any temporary, sensitive data on the user, clear it here\n        // $this->plainPassword = null;\n    }\n\n    public function getName(): ?string\n    {\n        return $this->name;\n    }\n\n    public function setName(string $name): static\n    {\n        $this->name = $name;\n\n        return $this;\n    }\n\n    public function getPseudo(): ?string\n    {\n        return $this->pseudo;\n    }\n\n    public function setPseudo(string $pseudo): static\n    {\n        $this->pseudo = $pseudo;\n\n        return $this;\n    }\n\n    public function getCreatedAt(): ?\\DateTimeImmutable\n    {\n        return $this->createdAt;\n    }\n\n    public function setCreatedAt(\\DateTimeImmutable $createdAt): static\n    {\n        $this->createdAt = $createdAt;\n\n        return $this;\n    }\n}\n"
+        }
+    ]
+}
